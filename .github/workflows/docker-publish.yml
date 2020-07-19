@@ -22,10 +22,10 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Build Alpine Image
-        run: docker build ./alpine --file Dockerfile --tag alpine
+        run: docker build ./alpine --tag alpine
 
       - name: Build Java8 Image
-        run: docker build ./java8 --file Dockerfile --tag java8
+        run: docker build ./java8 --tag java8
 
       - name: Push Alpine Image
         run: |
