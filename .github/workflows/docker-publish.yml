@@ -1,0 +1,46 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  VERSION: latest
+
+jobs:
+  push:
+    name: Push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Registry Authentication
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Build Alpine Image
+        run: docker build ./alpine --file Dockerfile --tag alpine
+
+      - name: Build Java8 Image
+        run: docker build ./java8 --file Dockerfile --tag java8
+
+      - name: Push Alpine Image
+        run: |
+          IMAGE_NAME=alpine
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
+
+      - name: Push Java8 Image
+        run: |
+          IMAGE_NAME=java8
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
