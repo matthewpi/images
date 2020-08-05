@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        ibmjava:8-jre-alpine
+FROM        adoptopenjdk/openjdk13-openj9:alpine
 
 LABEL       author="Matthew Penner" maintainer="me@matthewp.io"
 

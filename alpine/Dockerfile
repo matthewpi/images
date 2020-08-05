@@ -10,8 +10,8 @@ FROM        alpine:latest
 LABEL       author="Matthew Penner" maintainer="me@matthewp.io"
 
 RUN         apk add --update --no-cache ca-certificates tzdata \
-			&& adduser -D -h /home/container container \
-			&& ln -s /etc/localtime /etc/timezone
+			    && adduser -D -h /home/container container \
+			    && ln -s /etc/localtime /etc/timezone
 
 USER        container
 ENV         USER=container HOME=/home/container
