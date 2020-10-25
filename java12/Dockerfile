@@ -7,15 +7,10 @@
 
 FROM        adoptopenjdk/openjdk12-openj9:alpine
 
-LABEL       author="Matthew Penner" maintainer="me@matthewp.io"
+LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 RUN         apk add --update --no-cache curl ca-certificates openssl git tar bash sqlite fontconfig tzdata \
-			    && adduser -D -h /home/container container \
-			    && ln -s /etc/localtime /etc/timezone
-
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+			    && adduser -D -h /home/container container
 
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/ash", "/entrypoint.sh" ]
