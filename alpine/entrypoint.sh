@@ -11,15 +11,7 @@
 TZ=${TZ:-UTC}
 export TZ
 
-# Set the timezone in the container
-echo $TZ > /etc/timezone
-ln -s ../usr/share/zoneinfo/$TZ /etc/localtime
-
 # Switch to the container's working directory
-USER=container
-HOME=/home/container
-export USER
-export HOME
 cd /home/container
 
 # Set environment variable that holds the Internal Docker IP
@@ -30,4 +22,4 @@ MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g'
 echo "[container@pterodactyl ~]$ ${MODIFIED_STARTUP}"
 
 # Run the startup command
-su -c "eval ${MODIFIED_STARTUP}" container
+eval ${MODIFIED_STARTUP}
