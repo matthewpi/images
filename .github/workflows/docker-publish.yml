@@ -12,7 +12,20 @@ jobs:
   push:
     name: Push
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+
+    strategy:
+      matrix:
+        image:
+          - "alpine"
+          - "java7"
+          - "java8"
+          - "java9"
+          - "java10"
+          - "java11"
+          - "java12"
+          - "java13"
+          - "java14"
+          - "source"
 
     steps:
       - name: Code Checkout
@@ -21,108 +34,12 @@ jobs:
       - name: Registry Authentication
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: Build alpine Image
-        run: docker build ./alpine --tag alpine
+      - name: Build Image
+        run: docker build ./${{ matrix.image }} --tag alpine
 
-      - name: Build java7 Image
-        run: docker build ./java7 --tag java7
-
-      - name: Build java8 Image
-        run: docker build ./java8 --tag java8
-
-      - name: Build java9 Image
-        run: docker build ./java9 --tag java9
-
-      - name: Build java10 Image
-        run: docker build ./java10 --tag java10
-
-      - name: Build java11 Image
-        run: docker build ./java11 --tag java11
-
-      - name: Build java12 Image
-        run: docker build ./java12 --tag java12
-
-      - name: Build java13 Image
-        run: docker build ./java13 --tag java13
-
-      - name: Build java14 Image
-        run: docker build ./java14 --tag java14
-
-      - name: Push alpine Image
+      - name: Push Image
         run: |
-          IMAGE_NAME=alpine
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java7 Image
-        run: |
-          IMAGE_NAME=java7
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java8 Image
-        run: |
-          IMAGE_NAME=java8
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java9 Image
-        run: |
-          IMAGE_NAME=java9
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java10 Image
-        run: |
-          IMAGE_NAME=java10
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java11 Image
-        run: |
-          IMAGE_NAME=java11
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java12 Image
-        run: |
-          IMAGE_NAME=java12
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java13 Image
-        run: |
-          IMAGE_NAME=java13
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-      - name: Push java14 Image
-        run: |
-          IMAGE_NAME=java14
+          IMAGE_NAME=${{ matrix.image }}
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
