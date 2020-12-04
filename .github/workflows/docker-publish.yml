@@ -35,7 +35,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Build Image
-        run: docker build ./${{ matrix.image }} --tag alpine
+        run: docker build ./${{ matrix.image }} --tag ${{ matrix.image }}
 
       - name: Push Image
         run: |
