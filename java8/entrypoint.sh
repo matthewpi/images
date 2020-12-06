@@ -22,7 +22,8 @@ java -version
 
 # Replace variables in the startup command
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-echo "[container@pterodactyl ~]$ ${MODIFIED_STARTUP}"
+printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
+echo "${MODIFIED_STARTUP}"
 
 # Run the startup command
 eval ${MODIFIED_STARTUP}
