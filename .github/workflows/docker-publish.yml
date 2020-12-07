@@ -19,7 +19,7 @@ jobs:
       matrix:
         image:
           - "alpine"
-          - "source"
+          - "alpine-install"
           - "java7"
           - "java8"
           - "java9"
@@ -29,6 +29,8 @@ jobs:
           - "java13"
           - "java14"
           - "java15"
+          - "source"
+          - "source-install"
 
     steps:
       - name: Code Checkout
