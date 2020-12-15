@@ -51,9 +51,7 @@ jobs:
         run: |
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
-          docker buildx build ./${{ matrix.image }} \
-            --tag docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }} \
-            --platform linux/amd64,linux/arm64
+          docker buildx build ./${{ matrix.image }} --tag docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }} --platform linux/amd64,linux/arm64
 
       - name: Push Image
         env:
