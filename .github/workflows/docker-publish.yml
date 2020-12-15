@@ -39,12 +39,31 @@ jobs:
           version: v0.5.1
           buildkitd-flags: --debug
 
-      - name: Registry Authentication
-        run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+#      - name: Registry Authentication
+#        run: |
+#          echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: Build Image
-        env:
-          IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
+#      - name: Build Image
+#        env:
+#          IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
+#        run: |
+#          docker buildx build --push --platform=linux/amd64 --tag=$IMAGE_ID ./${{ matrix.image }}
+
+      - name: Set up containerd
+        uses: crazy-max/ghaction-setup-containerd@v1
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./alpine
+          file: ./Dockerfile
+          platforms: linux/amd64
+          tags: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
+          outputs: type=oci,dest=/tmp/image.tar
+
+      - name: Import image in containerd
         run: |
-          docker buildx build --push --platform=linux/amd64 --tag=$IMAGE_ID ./${{ matrix.image }}
+          sudo ctr i import --base-name docker.io/user/app --digests --all-platforms /tmp/image.tar
+      - name: Push image with containerd
+        run: |
+          sudo ctr --debug i push --user "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
