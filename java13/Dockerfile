@@ -9,6 +9,9 @@ FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk13-openj9:alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
+LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL       org.opencontainers.image.licenses=MIT
+
 RUN         apk add --update --no-cache curl ca-certificates openssl git tar bash sqlite fontconfig tzdata \
 			    && adduser -D -h /home/container container
 

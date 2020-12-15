@@ -49,11 +49,19 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
+      - name: Login to Quay
+        uses: docker/login-action@v1
+        with:
+          registry: quay.io
+          username: matthewp
+          password: ${{ secrets.QUAY_SECRET }}
+
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
           context: ./${{ matrix.image }}
           file: ./${{ matrix.image }}/Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:latest
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:latest
+            quay.io/matthewp/${{ matrix.image }}:latest

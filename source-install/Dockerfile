@@ -9,6 +9,9 @@ FROM        debian:stable-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
+LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL       org.opencontainers.image.licenses=MIT
+
 ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN         dpkg --add-architecture i386 \
