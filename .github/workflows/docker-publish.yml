@@ -52,7 +52,8 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v2
         with:
-          context: ./alpine
+          context: ./${{ matrix.image }}
+          file: ./${{ matrix.image }}/Dockerfile
           tags: ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:latest
           load: true
 
