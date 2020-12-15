@@ -11,7 +11,7 @@ env:
 jobs:
   push:
     name: Push
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     strategy:
       fail-fast: false
@@ -49,5 +49,6 @@ jobs:
         env:
           IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
         run: |
-          docker buildx create --driver-opt=image=moby/buildkit:v0.8.0 --use
-          docker buildx build --push --platform linux/amd64 --tag $IMAGE_ID ./${{ matrix.image }}
+          docker buildx create --name=builder --driver-opt=image=moby/buildkit:v0.8.0 --use
+          docker buildx inspect --bootstrap builder
+          docker buildx build --push --platform=linux/amd64 --tag=$IMAGE_ID ./${{ matrix.image }}
