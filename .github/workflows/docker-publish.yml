@@ -49,6 +49,6 @@ jobs:
         env:
           IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
         run: |
-          docker buildx create --name=builder --driver-opt=image=moby/buildkit:v0.8.0 --use
+          docker buildx create --name=builder --driver=docker --use
           docker buildx inspect --bootstrap builder
           docker buildx build --push --platform=linux/amd64 --tag=$IMAGE_ID ./${{ matrix.image }}
