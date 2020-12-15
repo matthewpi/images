@@ -49,7 +49,7 @@ jobs:
         env:
           IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
         run: |
-          docker buildx build --tag docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }} --platform linux/amd64,linux/arm64 ./${{ matrix.image }}
+          docker buildx build --tag $IMAGE_ID --platform linux/amd64,linux/arm64 ./${{ matrix.image }}
 
       - name: Push Image
         env:
