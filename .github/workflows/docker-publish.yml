@@ -36,11 +36,16 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
 
+      - name: Install buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+
       - name: Registry Authentication
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Build Image
-        run: docker build ./${{ matrix.image }} --tag ${{ matrix.image }}
+        run: docker buildx build ./${{ matrix.image }} --tag ${{ matrix.image }} --platform linux/amd64,linux/arm64
 
       - name: Push Image
         run: |
