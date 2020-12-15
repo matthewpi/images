@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  VERSION: latest
-
 jobs:
   push:
     name: Push
@@ -19,16 +16,16 @@ jobs:
       matrix:
         image:
           - "alpine"
-          - "alpine-install"
-          - "java7"
-          - "java8"
-          - "java9"
-          - "java10"
-          - "java11"
-          - "java12"
-          - "java13"
-          - "java14"
-          - "java15"
+          #- "alpine-install"
+          #- "java7"
+          #- "java8"
+          #- "java9"
+          #- "java10"
+          #- "java11"
+          #- "java12"
+          #- "java13"
+          #- "java14"
+          #- "java15"
           #- "source"
           #- "source-install"
 
@@ -49,6 +46,4 @@ jobs:
         env:
           IMAGE_ID: docker.pkg.github.com/${{ github.repository }}/${{ matrix.image }}:latest
         run: |
-          docker buildx create --name=builder --driver=docker --use
-          docker buildx inspect --bootstrap builder
           docker buildx build --push --platform=linux/amd64 --tag=$IMAGE_ID ./${{ matrix.image }}
