@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        ibmjava:8-jre-alpine
+FROM        --platform=$BUILDPLATFORM ibmjava:8-jre-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

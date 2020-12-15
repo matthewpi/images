@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        alpine:latest
+FROM        --platform=$BUILDPLATFORM alpine:latest
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

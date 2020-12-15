@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        openjdk:7-jre-alpine
+FROM        --platform=$BUILDPLATFORM openjdk:7-jre-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

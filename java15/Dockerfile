@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        adoptopenjdk/openjdk15-openj9:alpine
+FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk15-openj9:alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
