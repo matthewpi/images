@@ -5,7 +5,7 @@
 # https://github.com/matthewpi/images/blob/master/LICENSE.md
 #
 
-FROM        debian:stable-slim
+FROM        --platform=$BUILDPLATFORM debian:stable-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
