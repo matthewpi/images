@@ -1,3 +1,5 @@
+#!/bin/ash
+
 #
 # Copyright (c) 2021 Matthew Penner
 #
@@ -20,11 +22,23 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM alpine:latest
+# Default the TZ environment variable to UTC.
+TZ=${TZ:-UTC}
+export TZ
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+# Switch to the container's working directory
+cd /home/container
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+# Set environment variable that holds the Internal Docker IP
+export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`
 
-RUN         apk add --update --no-cache ca-certificates curl git jq wget
+# Print Go version
+go version
+
+# Replace variables in the startup command
+MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
+printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
+echo "${MODIFIED_STARTUP}"
+
+# Run the startup command
+eval ${MODIFIED_STARTUP}

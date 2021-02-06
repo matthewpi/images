@@ -20,11 +20,19 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM alpine:latest
+FROM        --platform=$BUILDPLATFORM golang:1.16rc1-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl git jq wget
+RUN         apk add --update --no-cache ca-certificates tzdata \
+				&& adduser -D -h /home/container container
+
+USER        container
+ENV         USER=container HOME=/home/container
+WORKDIR     /home/container
+
+COPY        ./entrypoint.sh /entrypoint.sh
+CMD         [ "/bin/ash", "/entrypoint.sh" ]
