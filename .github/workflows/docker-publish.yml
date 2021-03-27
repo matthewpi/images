@@ -30,6 +30,7 @@ jobs:
           - "java13"
           - "java14"
           - "java15"
+          - "java16"
           - "source"
           - "source-install"
 
