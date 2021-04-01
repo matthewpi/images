@@ -59,6 +59,15 @@ these images on an arm system, no modification to them or the tag is needed, the
 - [`java16`](https://github.com/matthewpi/images/tree/master/java16)
   - `ghcr.io/matthewpi/images:java16`
   - `quay.io/matthewp/pterodactyl:java16`
+- [`node12`](https://github.com/matthewpi/images/tree/master/node12)
+  - `ghcr.io/matthewpi/images:node12`
+  - `quay.io/matthewp/pterodactyl:node12`
+- [`node14`](https://github.com/matthewpi/images/tree/master/node14)
+  - `ghcr.io/matthewpi/images:node14`
+  - `quay.io/matthewp/pterodactyl:node14`
+- [`node15`](https://github.com/matthewpi/images/tree/master/node15)
+  - `ghcr.io/matthewpi/images:node15`
+  - `quay.io/matthewp/pterodactyl:node15`
 - [`source`](https://github.com/matthewpi/images/tree/master/source)
   - `ghcr.io/matthewpi/images:source`
   - `quay.io/matthewp/pterodactyl:source`
