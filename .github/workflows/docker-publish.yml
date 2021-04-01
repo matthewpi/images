@@ -31,6 +31,9 @@ jobs:
           - "java14"
           - "java15"
           - "java16"
+          - "node12"
+          - "node14"
+          - "node15"
           - "source"
           - "source-install"
 
