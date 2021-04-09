@@ -77,9 +77,6 @@ these images on an arm system, no modification to them or the tag is needed, the
 - [`python3.9`](https://github.com/matthewpi/images/tree/master/python3.9)
   - `ghcr.io/matthewpi/images:python3.9`
   - `quay.io/matthewp/pterodactyl:python3.9`
-- [`python3.10`](https://github.com/matthewpi/images/tree/master/python3.10)
-  - `ghcr.io/matthewpi/images:python3.10`
-  - `quay.io/matthewp/pterodactyl:python3.10`
 - [`source`](https://github.com/matthewpi/images/tree/master/source)
   - `ghcr.io/matthewpi/images:source`
   - `quay.io/matthewp/pterodactyl:source`
