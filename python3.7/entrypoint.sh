@@ -41,4 +41,4 @@ printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
 echo "${MODIFIED_STARTUP}"
 
 # Run the startup command
-exec ${MODIFIED_STARTUP}
+eval ${MODIFIED_STARTUP}
