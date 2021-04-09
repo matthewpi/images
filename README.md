@@ -68,6 +68,18 @@ these images on an arm system, no modification to them or the tag is needed, the
 - [`node15`](https://github.com/matthewpi/images/tree/master/node15)
   - `ghcr.io/matthewpi/images:node15`
   - `quay.io/matthewp/pterodactyl:node15`
+- [`python3.7`](https://github.com/matthewpi/images/tree/master/python3.7)
+  - `ghcr.io/matthewpi/images:python3.7`
+  - `quay.io/matthewp/pterodactyl:python3.7`
+- [`python3.8`](https://github.com/matthewpi/images/tree/master/python3.8)
+  - `ghcr.io/matthewpi/images:python3.8`
+  - `quay.io/matthewp/pterodactyl:python3.8`
+- [`python3.9`](https://github.com/matthewpi/images/tree/master/python3.9)
+  - `ghcr.io/matthewpi/images:python3.9`
+  - `quay.io/matthewp/pterodactyl:python3.9`
+- [`python3.10`](https://github.com/matthewpi/images/tree/master/python3.10)
+  - `ghcr.io/matthewpi/images:python3.10`
+  - `quay.io/matthewp/pterodactyl:python3.10`
 - [`source`](https://github.com/matthewpi/images/tree/master/source)
   - `ghcr.io/matthewpi/images:source`
   - `quay.io/matthewp/pterodactyl:source`
