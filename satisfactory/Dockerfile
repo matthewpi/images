@@ -32,8 +32,17 @@ ENV         DEBIAN_FRONTEND=noninteractive
 RUN         dpkg --add-architecture i386 \
 				&& apt update \
 				&& apt upgrade -y \
-				&& apt install -y tar curl gcc g++ lib32gcc1 libgcc1 libcurl4-gnutls-dev:i386 libssl1.1:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig telnet net-tools netcat tzdata wine-stable \
+				&& apt install -y tar curl gcc g++ lib32gcc1 libgcc1 libcurl4-gnutls-dev:i386 libssl1.1:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig telnet net-tools netcat tzdata \
 				&& useradd -m -d /home/container container
+
+RUN        wget -nc https://dl.winehq.org/wine-builds/winehq.key \
+				&& apt-key add winehq.key \
+				&& echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" >> /etc/apt/sources.list \
+				&& apt update \
+				&& wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/libfaudio0_20.01-0~buster_amd64.deb \
+				&& wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/libfaudio0_20.01-0~buster_i386.deb \
+				&& apt install -y ./libfaudio0_20.01-0~buster_* \
+				&& apt install -y --install-recommends winehq-stable cabextract xvfb
 
 USER        container
 ENV         USER=container HOME=/home/container
