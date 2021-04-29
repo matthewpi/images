@@ -22,20 +22,47 @@
 # SOFTWARE.
 #
 
-# Default the TZ environment variable to UTC.
+# Default the TZ environment variable to UTC
 TZ=${TZ:-UTC}
 export TZ
+
+# Set the GAMECONFIGDIR environment variable
+GAMECONFIGDIR="/home/container/.wine/drive_c/users/container/Local Settings/Application Data/FactoryGame/Saved"
+export GAMECONFIGDIR
 
 # Switch to the container's working directory
 cd /home/container
 
-# Set environment variable that holds the Internal Docker IP
-export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`
+# Create required directories
+mkdir -p /home/container/config /home/container/gamefiles /home/container/saves "$GAMECONFIGDIR/Config/WindowsNoEditor" "$GAMECONFIGDIR/Logs" "$GAMECONFIGDIR/SaveGames/common"
 
-# Replace variables in the startup command
-MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
+# Touch the log file
+touch "$GAMECONFIGDIR/Logs/FactoryGame.log"
+
+# Copy config files
+cp /home/container/config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
+
+# Copy save files
+cp -rp /home/container/saves/*.sav "$GAMECONFIGDIR/SaveGames/common/"
+
+# Get the latest save file
+LATEST_SAVE_FILE=$(ls -Art "$GAMECONFIGDIR/SaveGames/common" | tail -n 1)
+
+# Move latest save file
+if [[ ! "$LATEST_SAVE_FILE" == "savefile.sav" ]]; then
+	printf "\\nMoving most recent save (%s) to savefile.sav\\n" "$LATEST_SAVE_FILE"
+	mv "$GAMECONFIGDIR/SaveGames/common/$LATEST_SAVE_FILE" "$GAMECONFIGDIR/SaveGames/common/savefile.sav"
+fi
+
+# Switch to the gamefiles directory
+cd /home/container/gamefiles
+
+# Start Satisfactory (runs in the background)
 printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
-echo "${MODIFIED_STARTUP}"
+echo "wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound"
+wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound
 
-# Run the startup command
-exec env ${MODIFIED_STARTUP}
+# Tail the satisfactory log file
+printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
+echo "tail -f \"$GAMECONFIGDIR/Logs/FactoryGame.log\""
+tail -f "$GAMECONFIGDIR/Logs/FactoryGame.log"

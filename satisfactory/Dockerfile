@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM debian:stable-slim
+FROM        debian:stable-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
@@ -42,7 +42,7 @@ RUN        wget -nc https://dl.winehq.org/wine-builds/winehq.key \
 				&& wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/libfaudio0_20.01-0~buster_amd64.deb \
 				&& wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/libfaudio0_20.01-0~buster_i386.deb \
 				&& apt install -y ./libfaudio0_20.01-0~buster_* \
-				&& apt install -y --install-recommends winehq-stable cabextract xvfb
+				&& apt install -y --install-recommends winehq-stable cabextract
 
 USER        container
 ENV         USER=container HOME=/home/container
