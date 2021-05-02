@@ -34,6 +34,7 @@ jobs:
           - "node12"
           - "node14"
           - "node15"
+          - "node16"
           - "python3.7"
           - "python3.8"
           - "python3.9"
@@ -45,8 +46,8 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+#      - name: Set up QEMU
+#        uses: docker/setup-qemu-action@v1
 
       - name: Install buildx
         uses: docker/setup-buildx-action@v1
@@ -73,7 +74,7 @@ jobs:
         with:
           context: ./${{ matrix.image }}
           file: ./${{ matrix.image }}/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ghcr.io/matthewpi/images:${{ matrix.image }}
