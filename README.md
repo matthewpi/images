@@ -68,6 +68,9 @@ these images on an arm system, no modification to them or the tag is needed, the
 - [`node15`](https://github.com/matthewpi/images/tree/master/node15)
   - `ghcr.io/matthewpi/images:node15`
   - `quay.io/matthewp/pterodactyl:node15`
+- [`node16`](https://github.com/matthewpi/images/tree/master/node16)
+  - `ghcr.io/matthewpi/images:node16`
+  - `quay.io/matthewp/pterodactyl:node16`
 - [`python3.7`](https://github.com/matthewpi/images/tree/master/python3.7)
   - `ghcr.io/matthewpi/images:python3.7`
   - `quay.io/matthewp/pterodactyl:python3.7`
@@ -77,6 +80,9 @@ these images on an arm system, no modification to them or the tag is needed, the
 - [`python3.9`](https://github.com/matthewpi/images/tree/master/python3.9)
   - `ghcr.io/matthewpi/images:python3.9`
   - `quay.io/matthewp/pterodactyl:python3.9`
+- [`satisfactory`](https://github.com/matthewpi/images/tree/master/satisfactory)
+  - `ghcr.io/matthewpi/images:satisfactory`
+  - `quay.io/matthewp/pterodactyl:satisfactory`
 - [`source`](https://github.com/matthewpi/images/tree/master/source)
   - `ghcr.io/matthewpi/images:source`
   - `quay.io/matthewp/pterodactyl:source`
