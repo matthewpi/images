@@ -20,19 +20,16 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk11-openj9:alpine
+FROM        --platform=$BUILDPLATFORM debian:stable-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl fontconfig git openssl sqlite tar tzdata \
-			    && adduser -D -h /home/container container
+ENV         DEBIAN_FRONTEND=noninteractive
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
-
-COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/ash", "/entrypoint.sh" ]
+RUN         dpkg --add-architecture i386 \
+				&& apt update \
+				&& apt upgrade -y \
+				&& apt -y --no-install-recommends install ca-certificates curl lib32gcc1 libsdl2-2.0-0:i386 git

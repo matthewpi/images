@@ -3,22 +3,19 @@ on:
     branches:
       - master
     paths:
-      - tt_java/**
+      - tt_python/**
 
 jobs:
   push:
-    name: "yolks:java_${{ matrix.tag }}"
+    name: "yolks:python_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         tag:
-          - 7
-          - 8
-          - 9
-          - 11
-          - 14
-          - 16
+          - 3.7
+          - 3.8
+          - 3.9
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
@@ -32,9 +29,9 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./java
-          file: ./java/${{ matrix.tag }}/Dockerfile
+          context: ./python
+          file: ./python/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/pterodactyl/yolks:java_${{ matrix.tag }}
+            ghcr.io/pterodactyl/yolks:python_${{ matrix.tag }}

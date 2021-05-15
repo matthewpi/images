@@ -24,7 +24,7 @@ FROM        --platform=$BUILDPLATFORM openjdk:7-jre-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apk add --update --no-cache ca-certificates curl fontconfig git openssl sqlite tar tzdata \

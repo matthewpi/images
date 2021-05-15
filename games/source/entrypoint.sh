@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 # Copyright (c) 2021 Matthew Penner
 #
@@ -20,19 +22,21 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk11-openj9:alpine
+# Default the TZ environment variable to UTC.
+TZ=${TZ:-UTC}
+export TZ
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+# Set environment variable that holds the Internal Docker IP
+INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
+export INTERNAL_IP
 
-LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
-LABEL       org.opencontainers.image.licenses=MIT
+# Switch to the container's working directory
+cd /home/container || exit 1
 
-RUN         apk add --update --no-cache ca-certificates curl fontconfig git openssl sqlite tar tzdata \
-			    && adduser -D -h /home/container container
+# Replace variables in the startup command
+MODIFIED_STARTUP=$(eval echo "$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g')")
+printf '\033[1m\033[33mcontainer@pterodactyl~ \033[0m'
+echo "${MODIFIED_STARTUP}"
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
-
-COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/ash", "/entrypoint.sh" ]
+# Run the startup command
+exec env "${MODIFIED_STARTUP}"

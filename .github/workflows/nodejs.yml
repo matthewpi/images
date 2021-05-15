@@ -3,21 +3,19 @@ on:
     branches:
       - master
     paths:
-      - tt_java/**
+      - tt_nodejs/*
 
 jobs:
   push:
-    name: "yolks:java_${{ matrix.tag }}"
+    name: "yolks:nodejs_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         tag:
-          - 7
-          - 8
-          - 9
-          - 11
+          - 12
           - 14
+          - 15
           - 16
     steps:
       - uses: actions/checkout@v2
@@ -32,9 +30,9 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./java
-          file: ./java/${{ matrix.tag }}/Dockerfile
+          context: ./nodejs
+          file: ./nodejs/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/pterodactyl/yolks:java_${{ matrix.tag }}
+            ghcr.io/pterodactyl/yolks:nodejs_${{ matrix.tag }}
