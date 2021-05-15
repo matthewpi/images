@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk12-openj9:alpine
+FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk16-openj9:alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
@@ -34,5 +34,5 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
+COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/ash", "/entrypoint.sh" ]
