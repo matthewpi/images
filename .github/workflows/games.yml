@@ -1,13 +1,15 @@
+name: build games
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   push:
     branches:
-      - tt_master
+      - master
     paths:
-      - tt_games/**
-
+      - games/**
 jobs:
   push:
-    name: "games:${{ matrix.tag }}"
+    name: "games:${{ matrix.game }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -28,9 +30,9 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./games
+          context: ./games/${{ matrix.game }}
           file: ./games/${{ matrix.game }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/pterodactyl/games:${{ matrix.tag }}
+            ghcr.io/pterodactyl/games:${{ matrix.game }}

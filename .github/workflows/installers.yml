@@ -1,13 +1,15 @@
+name: build installers
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   push:
     branches:
-      - tt_master
+      - master
     paths:
       - installers/**
-
 jobs:
   push:
-    name: "yolk_installers:{{ matrix.tag }}"
+    name: "installers:{{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -33,4 +35,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/pterodactyl/yolk_installers:${{ matrix.tag }}
+            ghcr.io/pterodactyl/installers:${{ matrix.tag }}

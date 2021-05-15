@@ -1,10 +1,12 @@
+name: build go
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   push:
     branches:
       - master
     paths:
-      - tt_go/**
-
+      - go/**
 jobs:
   push:
     name: "yolks:go_${{ matrix.tag }}"

@@ -1,10 +1,12 @@
+name: build python
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   push:
     branches:
       - master
     paths:
-      - tt_python/**
-
+      - python/**
 jobs:
   push:
     name: "yolks:python_${{ matrix.tag }}"

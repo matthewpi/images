@@ -1,10 +1,12 @@
+name: build nodejs
 on:
+  schedule:
+    - cron: "0 0 * * 1"
   push:
     branches:
       - master
     paths:
-      - tt_nodejs/*
-
+      - nodejs/*
 jobs:
   push:
     name: "yolks:nodejs_${{ matrix.tag }}"
