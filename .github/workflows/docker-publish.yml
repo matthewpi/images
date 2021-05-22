@@ -14,48 +14,37 @@ jobs:
       fail-fast: false
 
       matrix:
-        type:
-          - "games"
-          - "generic"
-          - "go"
-          - "installers"
-          - "java"
-          - "node"
-          - "python"
-
         include:
           - type: "games"
-            IMAGE_PREFIX: ""
-            IMAGE_SUFFIX: ""
             image:
               - "fivem"
               - "satisfactory"
               - "source"
-
-          - type: "generic"
             IMAGE_PREFIX: ""
             IMAGE_SUFFIX: ""
+
+          - type: "generic"
             image:
               - "alpine"
+            IMAGE_PREFIX: ""
+            IMAGE_SUFFIX: ""
 
           - type: "go"
-            IMAGE_PREFIX: "go"
-            IMAGE_SUFFIX: ""
             image:
               - "1.14"
               - "1.15"
               - "1.16"
+            IMAGE_PREFIX: "go"
+            IMAGE_SUFFIX: ""
 
           - type: "installers"
-            IMAGE_PREFIX: ""
-            IMAGE_SUFFIX: "-install"
             image:
               - "alpine"
               - "source"
+            IMAGE_PREFIX: ""
+            IMAGE_SUFFIX: "-install"
 
           - type: "java"
-            IMAGE_PREFIX: "java"
-            IMAGE_SUFFIX: ""
             image:
               - "7"
               - "8"
@@ -67,23 +56,25 @@ jobs:
               - "14"
               - "15"
               - "16"
+            IMAGE_PREFIX: "java"
+            IMAGE_SUFFIX: ""
 
           - type: "node"
-            IMAGE_PREFIX: "node"
-            IMAGE_SUFFIX: ""
             image:
               - "12"
               - "14"
               - "15"
               - "16"
+            IMAGE_PREFIX: "node"
+            IMAGE_SUFFIX: ""
 
           - type: "python"
-            IMAGE_PREFIX: "python"
-            IMAGE_SUFFIX: ""
             image:
               - "3.7"
               - "3.8"
               - "3.9"
+            IMAGE_PREFIX: "python"
+            IMAGE_SUFFIX: ""
 
     steps:
       - name: Code Checkout
