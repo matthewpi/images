@@ -14,33 +14,77 @@ jobs:
       fail-fast: false
 
       matrix:
-        image:
-          - "alpine"
-          - "alpine-install"
-          - "fivem"
-          - "go1.14"
-          - "go1.15"
-          - "go1.16"
-          - "java7"
-          - "java8"
-          - "java9"
-          - "java10"
-          - "java11"
-          - "java12"
-          - "java13"
-          - "java14"
-          - "java15"
-          - "java16"
-          - "node12"
-          - "node14"
-          - "node15"
-          - "node16"
-          - "python3.7"
-          - "python3.8"
-          - "python3.9"
-          - "satisfactory"
-          - "source"
-          - "source-install"
+        type:
+          - "games"
+          - "generic"
+          - "go"
+          - "installers"
+          - "java"
+          - "node"
+          - "python"
+        image: []
+
+        include:
+          - type: "games"
+            IMAGE_PREFIX: ""
+            IMAGE_SUFFIX: ""
+            image:
+              - "fivem"
+              - "satisfactory"
+              - "source"
+
+          - type: "generic"
+            IMAGE_PREFIX: ""
+            IMAGE_SUFFIX: ""
+            image:
+              - "alpine"
+
+          - type: "go"
+            IMAGE_PREFIX: "go"
+            IMAGE_SUFFIX: ""
+            image:
+              - "1.14"
+              - "1.15"
+              - "1.16"
+
+          - type: "installers"
+            IMAGE_PREFIX: ""
+            IMAGE_SUFFIX: "-install"
+            image:
+              - "alpine"
+              - "source"
+
+          - type: "java"
+            IMAGE_PREFIX: "java"
+            IMAGE_SUFFIX: ""
+            image:
+              - "7"
+              - "8"
+              - "9"
+              - "10"
+              - "11"
+              - "12"
+              - "13"
+              - "14"
+              - "15"
+              - "16"
+
+          - type: "node"
+            IMAGE_PREFIX: "node"
+            IMAGE_SUFFIX: ""
+            image:
+              - "12"
+              - "14"
+              - "15"
+              - "16"
+
+          - type: "python"
+            IMAGE_PREFIX: "python"
+            IMAGE_SUFFIX: ""
+            image:
+              - "3.7"
+              - "3.8"
+              - "3.9"
 
     steps:
       - name: Code Checkout
@@ -72,10 +116,10 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.image }}
-          file: ./${{ matrix.image }}/Dockerfile
+          context: ./${{ matrix.type }}/${{ matrix.image }}
+          file: ./${{ matrix.type }}/${{ matrix.image }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/matthewpi/images:${{ matrix.image }}
-            quay.io/matthewp/pterodactyl:${{ matrix.image }}
+            ghcr.io/matthewpi/images:${{ matrix.IMAGE_PREFIX }}${{ matrix.image }}${{ matrix.IMAGE_SUFFIX }}
+            quay.io/matthewp/pterodactyl:${{ matrix.IMAGE_PREFIX }}${{ matrix.image }}${{ matrix.IMAGE_SUFFIX }}
