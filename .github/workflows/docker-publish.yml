@@ -22,7 +22,6 @@ jobs:
           - "java"
           - "node"
           - "python"
-        image: []
 
         include:
           - type: "games"
