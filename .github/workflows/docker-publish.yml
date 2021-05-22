@@ -15,38 +15,38 @@ jobs:
 
       matrix:
         image:
-          - {type: "games", image: "fivem", PREFIX: "", SUFFIX: ""}
-          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: ""}
-          - {type: "games", image: "source", PREFIX: "", SUFFIX: ""}
+          - {type: "games", image: "fivem"       , PREFIX: "", SUFFIX: "", context: "./games/fivem"}
+          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: "", context: "./games/satisfactory"}
+          - {type: "games", image: "source"      , PREFIX: "", SUFFIX: "", context: "./games/source"}
 
-          - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: ""}
+          - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: "", context: "./generic/alpine"}
 
-          - {type: "go", image: "1.14", PREFIX: "go", SUFFIX: ""}
-          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: ""}
-          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: ""}
+          - {type: "go", image: "1.14", PREFIX: "go", SUFFIX: "", context: "./go"}
+          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: "", context: "./go"}
+          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: "", context: "./go"}
 
-          - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install"}
-          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install"}
+          - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine"}
+          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source"}
 
-          - {type: "java", image: "7", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "8", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "9", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "10", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "11", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "12", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "13", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "14", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "15", PREFIX: "java", SUFFIX: ""}
-          - {type: "java", image: "16", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "7" , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "8" , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "9" , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "10", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "11", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "12", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "13", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "14", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "15", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "16", PREFIX: "java", SUFFIX: "", context: "./java"}
 
-          - {type: "node", image: "12", PREFIX: "node", SUFFIX: ""}
-          - {type: "node", image: "14", PREFIX: "node", SUFFIX: ""}
-          - {type: "node", image: "15", PREFIX: "node", SUFFIX: ""}
-          - {type: "node", image: "16", PREFIX: "node", SUFFIX: ""}
+          - {type: "node", image: "12", PREFIX: "node", SUFFIX: "", context: "./node"}
+          - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node"}
+          - {type: "node", image: "15", PREFIX: "node", SUFFIX: "", context: "./node"}
+          - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node"}
 
-          - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: ""}
-          - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: ""}
-          - {type: "python", image: "3.9", PREFIX: "python", SUFFIX: ""}
+          - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: "", context: "./python"}
+          - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: "", context: "./python"}
+          - {type: "python", image: "3.9", PREFIX: "python", SUFFIX: "", context: "./python"}
 
     steps:
       - name: Code Checkout
@@ -78,7 +78,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.image.type }}/${{ matrix.image.image }}
+          context: ./${{ matrix.image.context }}
           file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Dockerfile
           platforms: linux/amd64
           push: true
