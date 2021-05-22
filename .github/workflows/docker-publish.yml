@@ -14,285 +14,39 @@ jobs:
       fail-fast: false
 
       matrix:
-        type:
-          - "games"
-          - "generic"
-          - "go"
-          - "installers"
-          - "java"
-          - "node"
-          - "python"
         image:
-          - "alpine"
-          - "fivem"
-          - "1.14"
-          - "1.15"
-          - "1.16"
-          - "7"
-          - "8"
-          - "9"
-          - "10"
-          - "11"
-          - "12"
-          - "13"
-          - "14"
-          - "15"
-          - "16"
-          - "12"
-          - "14"
-          - "15"
-          - "16"
-          - "3.7"
-          - "3.8"
-          - "3.9"
-          - "satisfactory"
-          - "source"
+          - {type: "games", image: "fivem", PREFIX: "", SUFFIX: ""}
+          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: ""}
+          - {type: "games", image: "source", PREFIX: "", SUFFIX: ""}
 
-        exclude:
-          - type: "games"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "generic"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "go"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "installers"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "java"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "node"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
-          - type: "python"
-            image:
-              - "alpine"
-              - "fivem"
-              - "1.14"
-              - "1.15"
-              - "1.16"
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-              - "3.7"
-              - "3.8"
-              - "3.9"
-              - "satisfactory"
-              - "source"
+          - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: ""}
 
-        include:
-          - type: "games"
-            IMAGE_PREFIX: ""
-            IMAGE_SUFFIX: ""
-            image:
-              - "fivem"
-              - "satisfactory"
-              - "source"
+          - {type: "go", image: "1.14", PREFIX: "go", SUFFIX: ""}
+          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: ""}
+          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: ""}
 
-          - type: "generic"
-            IMAGE_PREFIX: ""
-            IMAGE_SUFFIX: ""
-            image:
-              - "alpine"
+          - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install"}
+          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install"}
 
-          - type: "go"
-            IMAGE_PREFIX: "go"
-            IMAGE_SUFFIX: ""
-            image:
-              - "1.14"
-              - "1.15"
-              - "1.16"
+          - {type: "java", image: "7", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "8", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "9", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "10", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "11", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "12", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "13", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "14", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "15", PREFIX: "java", SUFFIX: ""}
+          - {type: "java", image: "16", PREFIX: "java", SUFFIX: ""}
 
-          - type: "installers"
-            IMAGE_PREFIX: ""
-            IMAGE_SUFFIX: "-install"
-            image:
-              - "alpine"
-              - "source"
+          - {type: "node", image: "12", PREFIX: "node", SUFFIX: ""}
+          - {type: "node", image: "14", PREFIX: "node", SUFFIX: ""}
+          - {type: "node", image: "15", PREFIX: "node", SUFFIX: ""}
+          - {type: "node", image: "16", PREFIX: "node", SUFFIX: ""}
 
-          - type: "java"
-            IMAGE_PREFIX: "java"
-            IMAGE_SUFFIX: ""
-            image:
-              - "7"
-              - "8"
-              - "9"
-              - "10"
-              - "11"
-              - "12"
-              - "13"
-              - "14"
-              - "15"
-              - "16"
-
-          - type: "node"
-            IMAGE_PREFIX: "node"
-            IMAGE_SUFFIX: ""
-            image:
-              - "12"
-              - "14"
-              - "15"
-              - "16"
-
-          - type: "python"
-            IMAGE_PREFIX: "python"
-            IMAGE_SUFFIX: ""
-            image:
-              - "3.7"
-              - "3.8"
-              - "3.9"
+          - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: ""}
+          - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: ""}
+          - {type: "python", image: "3.9", PREFIX: "python", SUFFIX: ""}
 
     steps:
       - name: Code Checkout
@@ -324,10 +78,10 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
-          context: ./${{ matrix.type }}/${{ matrix.image }}
-          file: ./${{ matrix.type }}/${{ matrix.image }}/Dockerfile
+          context: ./${{ matrix.image.type }}/${{ matrix.image.image }}
+          file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/matthewpi/images:${{ matrix.IMAGE_PREFIX }}${{ matrix.image }}${{ matrix.IMAGE_SUFFIX }}
-            quay.io/matthewp/pterodactyl:${{ matrix.IMAGE_PREFIX }}${{ matrix.image }}${{ matrix.IMAGE_SUFFIX }}
+            ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+            quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
