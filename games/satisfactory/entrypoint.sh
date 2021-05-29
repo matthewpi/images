@@ -22,16 +22,20 @@
 # SOFTWARE.
 #
 
-# Default the TZ environment variable to UTC
+# Default the TZ environment variable to UTC.
 TZ=${TZ:-UTC}
 export TZ
+
+# Set environment variable that holds the Internal Docker IP
+INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
+export INTERNAL_IP
 
 # Set the GAMECONFIGDIR environment variable
 GAMECONFIGDIR="/home/container/.wine/drive_c/users/container/Local Settings/Application Data/FactoryGame/Saved"
 export GAMECONFIGDIR
 
 # Switch to the container's working directory
-cd /home/container
+cd /home/container || exit 1
 
 # Create required directories
 mkdir -p /home/container/config /home/container/gamefiles /home/container/saves "$GAMECONFIGDIR/Config/WindowsNoEditor" "$GAMECONFIGDIR/Logs" "$GAMECONFIGDIR/SaveGames/common"
