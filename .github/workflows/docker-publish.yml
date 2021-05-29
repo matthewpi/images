@@ -75,6 +75,13 @@ jobs:
           username: matthewp
           password: ${{ secrets.QUAY_SECRET }}
 
+      - name: Login to Private Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.REGISTRY }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
@@ -85,3 +92,4 @@ jobs:
           tags: |
             ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
             quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+            ${{ secrets.REGISTRY }}/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
