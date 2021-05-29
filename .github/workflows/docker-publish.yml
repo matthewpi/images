@@ -28,13 +28,8 @@ jobs:
           - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine"}
           - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source"}
 
-          - {type: "java", image: "7" , PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "8" , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "9" , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "10", PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "11", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "12", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "13", PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "14", PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "15", PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "16", PREFIX: "java", SUFFIX: "", context: "./java"}
