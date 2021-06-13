@@ -1,6 +1,5 @@
 #!/bin/ash
 
-#
 # Copyright (c) 2021 Matthew Penner
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
