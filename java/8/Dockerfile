@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM ibmjava:8-jre-alpine
+FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk8:alpine-jre
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

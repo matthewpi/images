@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk9:debianslim-jre
+FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk16-openj9:alpine-jre
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
