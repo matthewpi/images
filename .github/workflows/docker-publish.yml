@@ -28,17 +28,16 @@ jobs:
           - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine"}
           - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source"}
 
-          - {type: "java", image: "8" , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "11", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "11-openj9" , PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "14", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "15", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "16", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "16-openj9" , PREFIX: "java", SUFFIX: "", context: "./java"}
           - {type: "java", image: "16-hotspot", PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "16-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java"}
 
           - {type: "node", image: "12", PREFIX: "node", SUFFIX: "", context: "./node"}
           - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node"}
-          - {type: "node", image: "15", PREFIX: "node", SUFFIX: "", context: "./node"}
           - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node"}
 
           - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: "", context: "./python"}
