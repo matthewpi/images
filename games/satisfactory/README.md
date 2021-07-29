@@ -1,3 +1,3 @@
 # Satisfactory
 
-SoonTM
+Soon&trade;

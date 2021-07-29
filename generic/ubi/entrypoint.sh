@@ -33,10 +33,6 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 
-# Print Go version
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0mjava -version\n"
-java -version
-
 # Replace variables in the startup command
 PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #
 # Copyright (c) 2021 Matthew Penner
 #
@@ -22,25 +20,19 @@
 # SOFTWARE.
 #
 
-# Default the TZ environment variable to UTC.
-TZ=${TZ:-UTC}
-export TZ
+FROM        --platform=$BUILDPLATFORM debian:stable-slim
 
-# Set environment variable that holds the Internal Docker IP
-INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
-export INTERNAL_IP
+LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-# Switch to the container's working directory
-cd /home/container || exit 1
+LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL       org.opencontainers.image.licenses=MIT
 
-# Print Go version
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0mjava -version\n"
-java -version
+RUN         apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates tzdata \
+				&& adduser -D -h /home/container container
 
-# Replace variables in the startup command
-PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
+USER        container
+ENV         USER=container HOME=/home/container
+WORKDIR     /home/container
 
-# Run the startup command
-# shellcheck disable=SC2086
-exec env ${PARSED}
+COPY        ./entrypoint.sh /entrypoint.sh
+CMD         [ "/bin/bash", "/entrypoint.sh" ]

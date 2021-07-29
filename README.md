@@ -13,69 +13,209 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ## Available Images
 
-- [`alpine`](https://github.com/matthewpi/images/tree/master/generic/alpine)
-  - `ghcr.io/matthewpi/images:alpine`
-  - `quay.io/matthewp/pterodactyl:alpine`
-- [`fivem`](https://github.com/matthewpi/images/tree/master/games/fivem)
-  - `ghcr.io/matthewpi/images:fivem`
-  - `quay.io/matthewp/pterodactyl:fivem`
-- [`go1.14`](https://github.com/matthewpi/images/tree/master/go/1.14)
-  - `ghcr.io/matthewpi/images:go1.14`
-  - `quay.io/matthewp/pterodactyl:go1.14`
-- [`go1.15`](https://github.com/matthewpi/images/tree/master/go/1.15)
-  - `ghcr.io/matthewpi/images:go1.15`
-  - `quay.io/matthewp/pterodactyl:go1.15`
-- [`go1.16`](https://github.com/matthewpi/images/tree/master/go/1.16)
-  - `ghcr.io/matthewpi/images:go1.16`
-  - `quay.io/matthewp/pterodactyl:go1.16`
-- [`java8`](https://github.com/matthewpi/images/tree/master/java/8)
-  - `ghcr.io/matthewpi/images:java8`
-  - `quay.io/matthewp/pterodactyl:java8`
-- [`java11`](https://github.com/matthewpi/images/tree/master/java/11)
-  - `ghcr.io/matthewpi/images:java11`
-  - `quay.io/matthewp/pterodactyl:java11`
-- [`java14`](https://github.com/matthewpi/images/tree/master/java/14)
-  - `ghcr.io/matthewpi/images:java14`
-  - `quay.io/matthewp/pterodactyl:java14`
-- [`java15`](https://github.com/matthewpi/images/tree/master/java/15)
-  - `ghcr.io/matthewpi/images:java15`
-  - `quay.io/matthewp/pterodactyl:java15`
-- [`java16`](https://github.com/matthewpi/images/tree/master/java/16)
-  - `ghcr.io/matthewpi/images:java16`
-  - `quay.io/matthewp/pterodactyl:java16`
-- [`node12`](https://github.com/matthewpi/images/tree/master/node/12)
-  - `ghcr.io/matthewpi/images:node12`
-  - `quay.io/matthewp/pterodactyl:node12`
-- [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
-  - `ghcr.io/matthewpi/images:node14`
-  - `quay.io/matthewp/pterodactyl:node14`
-- [`node15`](https://github.com/matthewpi/images/tree/master/node/15)
-  - `ghcr.io/matthewpi/images:node15`
-  - `quay.io/matthewp/pterodactyl:node15`
-- [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
-  - `ghcr.io/matthewpi/images:node16`
-  - `quay.io/matthewp/pterodactyl:node16`
-- [`python3.7`](https://github.com/matthewpi/images/tree/master/python/3.7)
-  - `ghcr.io/matthewpi/images:python3.7`
-  - `quay.io/matthewp/pterodactyl:python3.7`
-- [`python3.8`](https://github.com/matthewpi/images/tree/master/python/3.8)
-  - `ghcr.io/matthewpi/images:python3.8`
-  - `quay.io/matthewp/pterodactyl:python3.8`
-- [`python3.9`](https://github.com/matthewpi/images/tree/master/python/3.9)
-  - `ghcr.io/matthewpi/images:python3.9`
-  - `quay.io/matthewp/pterodactyl:python3.9`
-- [`satisfactory`](https://github.com/matthewpi/images/tree/master/games/satisfactory)
-  - `ghcr.io/matthewpi/images:satisfactory`
-  - `quay.io/matthewp/pterodactyl:satisfactory`
-- [`source`](https://github.com/matthewpi/images/tree/master/games/source)
-  - `ghcr.io/matthewpi/images:source`
-  - `quay.io/matthewp/pterodactyl:source`
+### Games
 
-### Installation Images
+- [`fivem`](https://github.com/matthewpi/images/tree/master/games/fivem)
+  - Image specifically designed for running [FiveM](https://fivem.net)
+  - Tags
+    - `ghcr.io/matthewpi/images:fivem`
+    - `quay.io/matthewp/pterodactyl:fivem`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`satisfactory`](https://github.com/matthewpi/images/tree/master/games/satisfactory)
+  - WIP
+  - Tags
+    - `ghcr.io/matthewpi/images:satisfactory`
+    - `quay.io/matthewp/pterodactyl:satisfactory`
+  - Supported Architectures
+    - `linux/amd64`
+- [`source`](https://github.com/matthewpi/images/tree/master/games/source)
+  - Image specifically designed for running Source Engine servers.
+  - Tags
+    - `ghcr.io/matthewpi/images:source`
+    - `quay.io/matthewp/pterodactyl:source`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Generic
+
+- [`alpine`](https://github.com/matthewpi/images/tree/master/generic/alpine)
+  - Generic [Alpine](https://alpinelinux.org) Linux image
+  - Tags
+    - `ghcr.io/matthewpi/images:alpine`
+    - `quay.io/matthewp/pterodactyl:alpine`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`debian`](https://github.com/matthewpi/images/tree/master/generic/debian)
+  - Generic [Debian](https://www.debian.org/) image
+  - Tags
+    - `ghcr.io/matthewpi/images:debian`
+    - `quay.io/matthewp/pterodactyl:debian`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`ubi`](https://github.com/matthewpi/images/tree/master/generic/ubi)
+  - Generic [RedHat UBI](https://developers.redhat.com/products/rhel/ubi) image
+  - Tags
+    - `ghcr.io/matthewpi/images:ubi`
+    - `quay.io/matthewp/pterodactyl:ubi`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Golang
+
+- [`go1.14`](https://github.com/matthewpi/images/tree/master/go/1.14)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.14`
+    - `quay.io/matthewp/pterodactyl:go1.14`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.15`](https://github.com/matthewpi/images/tree/master/go/1.15)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.15`
+    - `quay.io/matthewp/pterodactyl:go1.15`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.16`](https://github.com/matthewpi/images/tree/master/go/1.16)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.16`
+    - `quay.io/matthewp/pterodactyl:go1.16`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Java
+
+#### Java 8
+
+- [`java8`](https://github.com/matthewpi/images/tree/master/java/8)
+  - Tags
+    - `ghcr.io/matthewpi/images:java8`
+    - `quay.io/matthewp/pterodactyl:java8`
+  - Supported Architectures
+    - `linux/amd64`
+
+#### Java 11
+
+- [`java11-hotspot`](https://github.com/matthewpi/images/tree/master/java/11-hotspot)
+  - Tags
+    - `ghcr.io/matthewpi/images:java11-hotspot`
+    - `quay.io/matthewp/pterodactyl:java11-hotspot`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`java11-openj9`](https://github.com/matthewpi/images/tree/master/java/11-openj9)
+  - Tags
+    - `ghcr.io/matthewpi/images:java11-openj9`
+    - `quay.io/matthewp/pterodactyl:java11-openj9`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`java11-zulu`](https://github.com/matthewpi/images/tree/master/java/11-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java11-zulu`
+    - `quay.io/matthewp/pterodactyl:java11-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+
+#### Java 16
+
+- [`java16-hotspot`](https://github.com/matthewpi/images/tree/master/java/16-hotspot)
+  - Tags
+    - `ghcr.io/matthewpi/images:java16-hotspot`
+    - `quay.io/matthewp/pterodactyl:java16-hotspot`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`java16-openj9`](https://github.com/matthewpi/images/tree/master/java/16-openj9)
+  - Tags
+    - `ghcr.io/matthewpi/images:java16-openj9`
+    - `quay.io/matthewp/pterodactyl:java16-openj9`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`java16-zulu`](https://github.com/matthewpi/images/tree/master/java/16-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java16-zulu`
+    - `quay.io/matthewp/pterodactyl:java16-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Node.js
+
+- [`node12`](https://github.com/matthewpi/images/tree/master/node/12)
+  - Tags
+    - `ghcr.io/matthewpi/images:node12`
+    - `quay.io/matthewp/pterodactyl:node12`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
+  - Tags
+    - `ghcr.io/matthewpi/images:node14`
+    - `quay.io/matthewp/pterodactyl:node14`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
+  - Tags
+    - `ghcr.io/matthewpi/images:node16`
+    - `quay.io/matthewp/pterodactyl:node16`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Python
+
+- [`python3.7`](https://github.com/matthewpi/images/tree/master/python/3.7)
+  - Tags
+    - `ghcr.io/matthewpi/images:python3.7`
+    - `quay.io/matthewp/pterodactyl:python3.7`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`python3.8`](https://github.com/matthewpi/images/tree/master/python/3.8)
+  - Tags
+    - `ghcr.io/matthewpi/images:python3.8`
+    - `quay.io/matthewp/pterodactyl:python3.8`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`python3.9`](https://github.com/matthewpi/images/tree/master/python/3.9)
+  - Tags
+    - `ghcr.io/matthewpi/images:python3.9`
+    - `quay.io/matthewp/pterodactyl:python3.9`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
+### Installers
 
 - [`alpine-install`](https://github.com/matthewpi/images/tree/master/installers/alpine)
-  - `ghcr.io/matthewpi/images:alpine-install`
-  - `quay.io/matthewp/pterodactyl:alpine-install`
-- [`source-install`](https://github.com/matthewpi/images/tree/master/installers/source)
-  - `ghcr.io/matthewpi/images:source-install`
-  - `quay.io/matthewp/pterodactyl:source-install`
+  - Tags
+    - `ghcr.io/matthewpi/images:alpine-install`
+    - `quay.io/matthewp/pterodactyl:alpine-install`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`debian-install`](https://github.com/matthewpi/images/tree/master/installers/debian)
+  - Tags
+    - `ghcr.io/matthewpi/images:debian-install`
+    - `quay.io/matthewp/pterodactyl:debian-install`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`ubi-install`](https://github.com/matthewpi/images/tree/master/installers/ubi)
+  - Tags
+    - `ghcr.io/matthewpi/images:ubi-install`
+    - `quay.io/matthewp/pterodactyl:ubi-install`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`

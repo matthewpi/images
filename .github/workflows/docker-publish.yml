@@ -15,41 +15,45 @@ jobs:
 
       matrix:
         image:
-          - {type: "games", image: "fivem"       , PREFIX: "", SUFFIX: "", context: "./games/fivem"}
-          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: "", context: "./games/satisfactory"}
-          - {type: "games", image: "source"      , PREFIX: "", SUFFIX: "", context: "./games/source"}
+          - {type: "games", image: "fivem"       , PREFIX: "", SUFFIX: "", context: "./games/fivem"       , platforms: "linux/amd64,linux/arm64"}
+          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: "", context: "./games/satisfactory", platforms: "linux/amd64,linux/arm64"}
+          - {type: "games", image: "source"      , PREFIX: "", SUFFIX: "", context: "./games/source"      , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: "", context: "./generic/alpine"}
+          - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: "", context: "./generic/alpine", platforms: "linux/amd64,linux/arm64"}
+          - {type: "generic", image: "debian", PREFIX: "", SUFFIX: "", context: "./generic/alpine", platforms: "linux/amd64,linux/arm64"}
+          - {type: "generic", image: "ubi"   , PREFIX: "", SUFFIX: "", context: "./generic/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "go", image: "1.14", PREFIX: "go", SUFFIX: "", context: "./go"}
-          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: "", context: "./go"}
-          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: "", context: "./go"}
+          - {type: "go", image: "1.14", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
+          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
+          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine"}
-          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source"}
+          - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine", platforms: "linux/amd64,linux/arm64"}
+          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source", platforms: "linux/amd64,linux/arm64"}
+          - {type: "installers", image: "ubi"   , PREFIX: "", SUFFIX: "-install", context: "./installers/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "11-openj9" , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "16-openj9" , PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "16-hotspot", PREFIX: "java", SUFFIX: "", context: "./java"}
-          - {type: "java", image: "16-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java"}
+          - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
+          - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
+          - {type: "java", image: "11-openj9" , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
+          - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
+          - {type: "java", image: "16-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
+          - {type: "java", image: "16-openj9" , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
+          - {type: "java", image: "16-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "node", image: "12", PREFIX: "node", SUFFIX: "", context: "./node"}
-          - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node"}
-          - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node"}
+          - {type: "node", image: "12", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
+          - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
+          - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: "", context: "./python"}
-          - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: "", context: "./python"}
-          - {type: "python", image: "3.9", PREFIX: "python", SUFFIX: "", context: "./python"}
+          - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
+          - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
+          - {type: "python", image: "3.9", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
 
     steps:
       - name: Code Checkout
         uses: actions/checkout@v2
 
-#      - name: Set up QEMU
-#        uses: docker/setup-qemu-action@v1
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+        if: ${{ matrix.image.platforms != 'linux/amd64' }}
 
       - name: Install buildx
         uses: docker/setup-buildx-action@v1
@@ -71,21 +75,21 @@ jobs:
           username: matthewp
           password: ${{ secrets.QUAY_SECRET }}
 
-      - name: Login to Private Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ secrets.REGISTRY }}
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+      # - name: Login to Private Registry
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: ${{ secrets.REGISTRY }}
+      #     username: ${{ secrets.REGISTRY_USERNAME }}
+      #     password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
           context: ./${{ matrix.image.context }}
           file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Dockerfile
-          platforms: linux/amd64
+          platforms: ${{ matrix.image.platforms }}
           push: true
           tags: |
             ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
             quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
-            ${{ secrets.REGISTRY }}/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+# ${{ secrets.REGISTRY }}/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
