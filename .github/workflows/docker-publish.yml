@@ -28,7 +28,7 @@ jobs:
           - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
 
           - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine", platforms: "linux/amd64,linux/arm64"}
-          - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source", platforms: "linux/amd64,linux/arm64"}
+          - {type: "installers", image: "debian", PREFIX: "", SUFFIX: "-install", context: "./installers/debian", platforms: "linux/amd64,linux/arm64"}
           - {type: "installers", image: "ubi"   , PREFIX: "", SUFFIX: "-install", context: "./installers/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
           - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}

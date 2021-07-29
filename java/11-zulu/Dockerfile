@@ -26,7 +26,7 @@ ENV         LANG=en_US.UTF-8
 ENV         LANGUAGE=en_US:en
 ENV         LC_ALL=en_US.UTF-8
 
-RUN         microdnf install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
+RUN         rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
 				&& microdnf install zulu11-jdk
 
 ENV         JAVA_HOME=/usr/lib/jvm/zulu11
