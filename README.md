@@ -74,5 +74,5 @@ is tagged correctly.
 * [`alpine-install`](https://github.com/pterodactyl/yolks/tree/master/installers/alpine)
   * `ghcr.io/pterodactyl/installers:alpine`
 
-* [`source-install`](https://github.com/pterodactyl/yolks/tree/master/installers/source)
-  * `ghcr.io/pterodactyl/installers:source`
+* [`debian-install`](https://github.com/pterodactyl/yolks/tree/master/installers/debian)
+  * `ghcr.io/pterodactyl/installers:debian`
