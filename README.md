@@ -42,10 +42,16 @@ is tagged correctly.
 * [`java`](https://github.com/pterodactyl/yolks/tree/master/java)
   * [`java8`](https://github.com/pterodactyl/yolks/tree/master/java/8)
     * `ghcr.io/pterodactyl/yolks:java_8`
+  * [`java8 - OpenJ9`](https://github.com/pterodactyl/yolks/tree/master/java/8j9)
+    * `ghcr.io/pterodactyl/yolks:java_8j9`
   * [`java11`](https://github.com/pterodactyl/yolks/tree/master/java/11)
     * `ghcr.io/pterodactyl/yolks:java_11`
+  * [`java11 - OpenJ9`](https://github.com/pterodactyl/yolks/tree/master/java/11j9)
+    * `ghcr.io/pterodactyl/yolks:java_11j9`
   * [`java16`](https://github.com/pterodactyl/yolks/tree/master/java/16)
     * `ghcr.io/pterodactyl/yolks:java_16`
+  * [`java16 - OpenJ9`](https://github.com/pterodactyl/yolks/tree/master/java/16j9)
+    * `ghcr.io/pterodactyl/yolks:java_16j9`
 * [`nodejs`](https://github.com/pterodactyl/yolks/tree/master/nodejs)
   * [`node12`](https://github.com/pterodactyl/yolks/tree/master/nodejs/12)
     * `ghcr.io/pterodactyl/yolks:nodejs_12`
@@ -68,5 +74,5 @@ is tagged correctly.
 * [`alpine-install`](https://github.com/pterodactyl/yolks/tree/master/installers/alpine)
   * `ghcr.io/pterodactyl/installers:alpine`
 
-* [`source-install`](https://github.com/pterodactyl/yolks/tree/master/installers/source)
-  * `ghcr.io/pterodactyl/installers:source`
+* [`debian-install`](https://github.com/pterodactyl/yolks/tree/master/installers/debian)
+  * `ghcr.io/pterodactyl/installers:debian`
