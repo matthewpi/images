@@ -40,16 +40,10 @@ is tagged correctly.
   * [`go1.16`](https://github.com/pterodactyl/yolks/tree/master/go/1.16)
     * `ghcr.io/pterodactyl/yolks:go_1.16`
 * [`java`](https://github.com/pterodactyl/yolks/tree/master/java)
-  * [`java7`](https://github.com/pterodactyl/yolks/tree/master/java/7)
-    * `ghcr.io/pterodactyl/yolks:java_7`
   * [`java8`](https://github.com/pterodactyl/yolks/tree/master/java/8)
     * `ghcr.io/pterodactyl/yolks:java_8`
-  * [`java9`](https://github.com/pterodactyl/yolks/tree/master/java/9)
-    * `ghcr.io/pterodactyl/yolks:java_9`
   * [`java11`](https://github.com/pterodactyl/yolks/tree/master/java/11)
     * `ghcr.io/pterodactyl/yolks:java_11`
-  * [`java14`](https://github.com/pterodactyl/yolks/tree/master/java/14)
-    * `ghcr.io/pterodactyl/yolks:java_14`
   * [`java16`](https://github.com/pterodactyl/yolks/tree/master/java/16)
     * `ghcr.io/pterodactyl/yolks:java_16`
 * [`nodejs`](https://github.com/pterodactyl/yolks/tree/master/nodejs)
