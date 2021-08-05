@@ -22,25 +22,22 @@
 
 FROM        --platform=$BUILDPLATFORM redhat/ubi8-minimal:latest
 
-ENV         LANG=en_US.UTF-8
-ENV         LANGUAGE=en_US:en
-ENV         LC_ALL=en_US.UTF-8
-
-RUN         rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
-				&& microdnf install zulu16-jre; microdnf clean all
-
-ENV         JAVA_HOME=/usr/lib/jvm/zulu16-ca
-
-# ---------------------------------------------------------------- #
-
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install ca-certificates fontconfig git iproute openssl sqlite tar tzdata \
-				&& microdnf update; microdnf clean all \
-				&& adduser --home-dir /home/container container
+RUN         microdnf install fontconfig iproute openssl sqlite tar \
+				&& microdnf update \
+				&& adduser --home-dir /home/container container \
+				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
+				&& microdnf install zulu16-jre; microdnf clean all
+
+ENV         LANG=en_US.UTF-8
+ENV         LANGUAGE=en_US:en
+ENV         LC_ALL=en_US.UTF-8
+
+ENV         JAVA_HOME=/usr/lib/jvm/zulu16-ca
 
 USER        container
 ENV         USER=container HOME=/home/container
