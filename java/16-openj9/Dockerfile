@@ -27,7 +27,7 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install ca-certificates fontconfig git openssl sqlite tar tzdata \
+RUN         microdnf install ca-certificates fontconfig git iproute openssl sqlite tar tzdata \
 				&& microdnf update; microdnf clean all \
 				&& adduser --home-dir /home/container container
 
