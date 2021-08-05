@@ -27,7 +27,7 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig iproute openssl sqlite tar \
+RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar \
 				&& microdnf update; microdnf clean all \
 				&& adduser --home-dir /home/container container
 

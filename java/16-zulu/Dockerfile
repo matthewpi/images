@@ -27,7 +27,7 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig iproute openssl sqlite tar \
+RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar \
 				&& microdnf update \
 				&& adduser --home-dir /home/container container \
 				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
