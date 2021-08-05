@@ -24,7 +24,8 @@
 FROM        --platform=$BUILDPLATFORM redhat/ubi8-minimal:latest
 
 RUN         microdnf install ca-certificates gzip openssl tar wget \
-				&& microdnf update; microdnf clean all
+				&& microdnf update \
+				&& microdnf clean all
 
 ENV         JAVA_VERSION=1.8.0_sr6fp31
 
@@ -73,9 +74,12 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar \
-				&& microdnf update; microdnf clean all \
-				&& adduser --home-dir /home/container container
+RUN         microdnf install fontconfig iproute openssl sqlite tar \
+				&& microdnf update \
+				&& microdnf install shadow-utils \
+				&& adduser --home-dir /home/container container \
+				&& microdnf remove shadow-utils \
+				&& microdnf clean all
 
 USER        container
 ENV         USER=container HOME=/home/container

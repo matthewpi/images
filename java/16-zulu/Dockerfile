@@ -27,11 +27,14 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar \
+RUN         microdnf install fontconfig iproute openssl sqlite tar \
 				&& microdnf update \
+				&& microdnf install shadow-utils \
 				&& adduser --home-dir /home/container container \
+				&& microdnf remove shadow-utils \
 				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
-				&& microdnf install zulu16-jre; microdnf clean all
+				&& microdnf install zulu16-jre \
+				&& microdnf clean all
 
 ENV         LANG=en_US.UTF-8
 ENV         LANGUAGE=en_US:en

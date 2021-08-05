@@ -31,7 +31,8 @@ RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar 
 				&& microdnf update \
 				&& adduser --home-dir /home/container container \
 				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
-				&& microdnf install zulu16-jdk; microdnf clean all
+				&& microdnf install zulu11 \
+				&& microdnf clean all
 
 ENV         LANG=en_US.UTF-8
 ENV         LANGUAGE=en_US:en
