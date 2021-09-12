@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM golang:1.14-alpine
+FROM        --platform=$BUILDPLATFORM golang:1.17-alpine
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
