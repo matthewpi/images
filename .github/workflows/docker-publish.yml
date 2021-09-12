@@ -16,7 +16,7 @@ jobs:
       matrix:
         image:
           - {type: "games", image: "fivem"       , PREFIX: "", SUFFIX: "", context: "./games/fivem"       , platforms: "linux/amd64,linux/arm64"}
-          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: "", context: "./games/satisfactory", platforms: "linux/amd64,linux/arm64"}
+#          - {type: "games", image: "satisfactory", PREFIX: "", SUFFIX: "", context: "./games/satisfactory", platforms: "linux/amd64,linux/arm64"}
           - {type: "games", image: "source"      , PREFIX: "", SUFFIX: "", context: "./games/source"      , platforms: "linux/amd64,linux/arm64"}
 
           - {type: "generic", image: "alpine", PREFIX: "", SUFFIX: "", context: "./generic/alpine", platforms: "linux/amd64,linux/arm64"}
