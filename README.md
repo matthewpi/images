@@ -116,7 +116,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:java11-openj9`
   - Supported Architectures
     - `linux/amd64`
-    - `linux/arm64`
 - [`java11-zulu`](https://github.com/matthewpi/images/tree/master/java/11-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java11-zulu`
@@ -139,7 +138,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:java16-openj9`
   - Supported Architectures
     - `linux/amd64`
-    - `linux/arm64`
 - [`java16-zulu`](https://github.com/matthewpi/images/tree/master/java/16-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java16-zulu`

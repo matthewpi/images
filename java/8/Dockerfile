@@ -27,7 +27,7 @@ RUN         microdnf install ca-certificates gzip openssl tar wget \
 				&& microdnf update \
 				&& microdnf clean all
 
-ENV         JAVA_VERSION=1.8.0_sr6fp31
+ENV         JAVA_VERSION=8.0.6.36
 
 RUN         set -eux; \
 				microdnf -y install shadow-utils; \
@@ -35,8 +35,8 @@ RUN         set -eux; \
 				ARCH="$(uname -m)"; \
 				case "${ARCH}" in \
 					amd64|x86_64) \
-						ESUM='ed09900a0219b40ddfa06098118a701b8633dcf12588e13ff8b7d810ef2769dc'; \
-						YML_FILE='jre/linux/x86_64/index.yml'; \
+						ESUM='d0198a37b63810174dc972eb06976e3e761efb21524c1fa3f9f1ed1246f3a9e3'; \
+						YML_FILE='8.0/jre/linux/x86_64/index.yml'; \
 					;; \
 					*) \
 						echo "Unsupported arch: ${ARCH}"; \
