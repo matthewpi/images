@@ -27,12 +27,13 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig iproute openssl shadow-utils sqlite tar \
+RUN         microdnf install fontconfig glibc-langpack-en iproute openssl shadow-utils sqlite tar \
 				&& microdnf update \
 				&& adduser --home-dir /home/container container \
 				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
 				&& microdnf install zulu11 \
-				&& microdnf clean all
+				&& microdnf clean all \
+				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
 
 ENV         LANG=en_US.UTF-8
 ENV         LANGUAGE=en_US:en
