@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/ubi
+FROM        registry.access.redhat.com/ubi8/ubi
 
 ARG         TARGETARCH
 ARG         TARGETOS
