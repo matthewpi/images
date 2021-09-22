@@ -21,7 +21,7 @@
 #
 
 # https://github.com/ibmruntimes/ci.docker/blob/master/ibmjava/8/jre/ubi-min/Dockerfile
-FROM        --platform=$BUILDPLATFORM redhat/ubi8-minimal:latest
+FROM        --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
 RUN         microdnf install ca-certificates gzip openssl tar wget \
 				&& microdnf update \

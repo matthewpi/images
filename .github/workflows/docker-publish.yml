@@ -41,7 +41,6 @@ jobs:
 
           - {type: "node", image: "12", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
           - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
-          - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
 
           - {type: "python", image: "3.7", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
           - {type: "python", image: "3.8", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
@@ -58,7 +57,7 @@ jobs:
       - name: Install buildx
         uses: docker/setup-buildx-action@v1
         with:
-          version: v0.5.1
+          version: v0.6.3
           buildkitd-flags: --debug
 
       - name: Login to GitHub Container Registry

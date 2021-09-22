@@ -149,26 +149,25 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 ### Node.js
 
 - [`node12`](https://github.com/matthewpi/images/tree/master/node/12)
+  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-12/5d3fff015a13461f5fb8635a>
   - Tags
     - `ghcr.io/matthewpi/images:node12`
     - `quay.io/matthewp/pterodactyl:node12`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `April 2022`
 - [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
+  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-14/5ed7887dd70cc50e69c2fabb>
   - Tags
     - `ghcr.io/matthewpi/images:node14`
     - `quay.io/matthewp/pterodactyl:node14`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
-- [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
-  - Tags
-    - `ghcr.io/matthewpi/images:node16`
-    - `quay.io/matthewp/pterodactyl:node16`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
+  - End of life: `April 2023`
+- `node16`
+  - Waiting on official ubi8 image from Red Hat.
 
 ### Python
 

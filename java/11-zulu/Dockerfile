@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM redhat/ubi8-minimal:latest
+FROM        --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/ubi-minimal
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

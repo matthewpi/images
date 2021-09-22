@@ -20,19 +20,28 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM node:14-alpine
+FROM        --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/nodejs-14:latest
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl ffmpeg git openssl sqlite tar tzdata \
-				&& adduser -D -h /home/container container
+RUN         microdnf install curl ffmpeg fontconfig git glibc-langpack-en iproute openssl sqlite tar \
+				&& microdnf update \
+				&& microdnf install shadow-utils \
+				&& adduser --home-dir /home/container container \
+				&& microdnf remove shadow-utils \
+				&& microdnf clean all \
+				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
+
+ENV         LANG=en_US.UTF-8
+ENV         LANGUAGE=en_US:en
+ENV         LC_ALL=en_US.UTF-8
 
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/ash", "/entrypoint.sh" ]
+CMD         [ "/bin/bash", "/entrypoint.sh" ]
