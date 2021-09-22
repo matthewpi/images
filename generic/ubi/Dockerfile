@@ -20,12 +20,18 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM redhat/ubi8:latest
+FROM        --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/ubi
+
+ARG         TARGETARCH
+ARG         TARGETOS
+
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL       org.opencontainers.image.licenses=MIT
+LABEL       io.matthewp.architecture=$TARGETARCH
+LABEL       io.matthewp.os=$TARGETOS
 
 RUN         dnf update -y && dnf install -y ca-certificates tzdata \
 				&& adduser -D -h /home/container container
