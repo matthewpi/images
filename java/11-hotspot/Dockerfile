@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk11:ubi-minimal-jre
+FROM        --platform=$TARGETOS/$TARGETARCH adoptopenjdk/openjdk11:ubi-minimal-jre
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

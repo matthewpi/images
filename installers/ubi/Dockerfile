@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM redhat/ubi8:latest
+FROM        --platform=$TARGETOS/$TARGETARCH redhat/ubi8:latest
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
