@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/nodejs-14:latest
+FROM        --platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/nodejs-14-minimal:latest
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

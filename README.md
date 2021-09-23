@@ -110,12 +110,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
-- [`java11-openj9`](https://github.com/matthewpi/images/tree/master/java/11-openj9)
-  - Tags
-    - `ghcr.io/matthewpi/images:java11-openj9`
-    - `quay.io/matthewp/pterodactyl:java11-openj9`
-  - Supported Architectures
-    - `linux/amd64`
 - [`java11-zulu`](https://github.com/matthewpi/images/tree/master/java/11-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java11-zulu`
@@ -132,12 +126,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
-- [`java16-openj9`](https://github.com/matthewpi/images/tree/master/java/16-openj9)
-  - Tags
-    - `ghcr.io/matthewpi/images:java16-openj9`
-    - `quay.io/matthewp/pterodactyl:java16-openj9`
-  - Supported Architectures
-    - `linux/amd64`
 - [`java16-zulu`](https://github.com/matthewpi/images/tree/master/java/16-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java16-zulu`
@@ -148,15 +136,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Node.js
 
-- [`node12`](https://github.com/matthewpi/images/tree/master/node/12)
-  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-12/5d3fff015a13461f5fb8635a>
-  - Tags
-    - `ghcr.io/matthewpi/images:node12`
-    - `quay.io/matthewp/pterodactyl:node12`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
-  - End of life: `April 2022`
 - [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
   - <https://catalog.redhat.com/software/containers/ubi8/nodejs-14/5ed7887dd70cc50e69c2fabb>
   - Tags
