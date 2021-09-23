@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM openjdk:16-slim
+FROM        --platform=$TARGETOS/$TARGETARCH openjdk:16-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

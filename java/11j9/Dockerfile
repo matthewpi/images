@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$BUILDPLATFORM adoptopenjdk/openjdk11-openj9:debianslim
+FROM        --platform=$TARGETOS/$TARGETARCH adoptopenjdk/openjdk11-openj9:debianslim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
