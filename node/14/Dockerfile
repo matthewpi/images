@@ -29,7 +29,7 @@ LABEL		org.opencontainers.image.licenses=MIT
 
 USER		root
 
-RUN			microdnf install curl ffmpeg fontconfig git glibc-langpack-en iproute openssl sqlite tar \
+RUN			microdnf install curl fontconfig git glibc-langpack-en iproute openssl sqlite tar \
 				&& microdnf update \
 				&& microdnf install shadow-utils \
 				&& adduser --home-dir /home/container container \
