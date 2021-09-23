@@ -20,14 +20,14 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig glibc-langpack-en iproute openssl shadow-utils sqlite tar \
+RUN			microdnf install fontconfig glibc-langpack-en iproute openssl shadow-utils sqlite tar \
 				&& microdnf update \
 				&& adduser --home-dir /home/container container \
 				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
@@ -35,15 +35,15 @@ RUN         microdnf install fontconfig glibc-langpack-en iproute openssl shadow
 				&& microdnf clean all \
 				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
 
-ENV         LANG=en_US.UTF-8
-ENV         LANGUAGE=en_US:en
-ENV         LC_ALL=en_US.UTF-8
+ENV			LANG=en_US.UTF-8
+ENV			LANGUAGE=en_US:en
+ENV			LC_ALL=en_US.UTF-8
 
-ENV         JAVA_HOME=/usr/lib/jvm/zulu11
+ENV			JAVA_HOME=/usr/lib/jvm/zulu11
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+USER		container
+ENV			USER=container HOME=/home/container
+WORKDIR		/home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+COPY		./entrypoint.sh /entrypoint.sh
+CMD			[ "/bin/bash", "/entrypoint.sh" ]

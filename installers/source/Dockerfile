@@ -20,19 +20,16 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH golang:1.16-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			apk add --update --no-cache ca-certificates tzdata \
-				&& adduser -D -h /home/container container
+ENV			DEBIAN_FRONTEND=noninteractive
 
-USER		container
-ENV			USER=container HOME=/home/container
-WORKDIR		/home/container
-
-COPY		./entrypoint.sh /entrypoint.sh
-CMD			[ "/bin/ash", "/entrypoint.sh" ]
+RUN			dpkg --add-architecture i386 \
+				&& apt-get update \
+				&& apt-get upgrade -y \
+				&& apt-get -y --no-install-recommends install ca-certificates curl git lib32gcc-s1 libsdl2-2.0-0:i386 wget

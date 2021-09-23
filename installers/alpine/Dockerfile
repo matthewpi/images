@@ -20,11 +20,11 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH alpine:latest
+FROM		--platform=$TARGETOS/$TARGETARCH alpine:latest
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl git jq wget
+RUN			apk add --update --no-cache ca-certificates curl git jq wget

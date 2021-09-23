@@ -20,16 +20,15 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
+FROM		--platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-ENV         DEBIAN_FRONTEND=noninteractive
+ENV			DEBIAN_FRONTEND=noninteractive
 
-RUN         dpkg --add-architecture i386 \
-				&& apt-get update \
+RUN			apt-get update \
 				&& apt-get upgrade -y \
-				&& apt-get -y --no-install-recommends install ca-certificates curl git lib32gcc-s1 libsdl2-2.0-0:i386 wget
+				&& apt-get -y --no-install-recommends install ca-certificates curl git wget

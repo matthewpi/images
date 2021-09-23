@@ -21,15 +21,15 @@
 #
 
 # https://github.com/ibmruntimes/ci.docker/blob/master/ibmjava/8/jre/ubi-min/Dockerfile
-FROM        --platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
 
-RUN         microdnf install ca-certificates gzip openssl tar wget \
+RUN			microdnf install ca-certificates gzip openssl tar wget \
 				&& microdnf update \
 				&& microdnf clean all
 
-ENV         JAVA_VERSION=8.0.6.36
+ENV			JAVA_VERSION=8.0.6.36
 
-RUN         set -eux; \
+RUN			set -eux; \
 				microdnf -y install shadow-utils; \
 				useradd -u 1001 -r -g 0 -s /usr/sbin/nologin default; \
 				ARCH="$(uname -m)"; \
@@ -63,18 +63,18 @@ RUN         set -eux; \
 				microdnf clean all; \
 				rm -f /tmp/ibm-java.bin;
 
-ENV         IBM_JAVA_OPTIONS="-XX:+UseContainerSupport"
-ENV         JAVA_HOME=/opt/ibm/java/jre
-ENV         PATH=/opt/ibm/java/jre/bin:$PATH
+ENV			IBM_JAVA_OPTIONS="-XX:+UseContainerSupport"
+ENV			JAVA_HOME=/opt/ibm/java/jre
+ENV			PATH=/opt/ibm/java/jre/bin:$PATH
 
 # ---------------------------------------------------------------- #
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-RUN         microdnf install fontconfig glibc-langpack-en iproute openssl sqlite tar \
+RUN			microdnf install fontconfig glibc-langpack-en iproute openssl sqlite tar \
 				&& microdnf update \
 				&& microdnf install shadow-utils \
 				&& adduser --home-dir /home/container container \
@@ -82,13 +82,13 @@ RUN         microdnf install fontconfig glibc-langpack-en iproute openssl sqlite
 				&& microdnf clean all \
 				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
 
-ENV         LANG=en_US.UTF-8
-ENV         LANGUAGE=en_US:en
-ENV         LC_ALL=en_US.UTF-8
+ENV			LANG=en_US.UTF-8
+ENV			LANGUAGE=en_US:en
+ENV			LC_ALL=en_US.UTF-8
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+USER		container
+ENV			USER=container HOME=/home/container
+WORKDIR		/home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+COPY		./entrypoint.sh /entrypoint.sh
+CMD			[ "/bin/bash", "/entrypoint.sh" ]

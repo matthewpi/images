@@ -20,11 +20,11 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi:latest
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-RUN         dnf update -y && dnf install -y ca-certificates curl git jq tzdata wget
+RUN			dnf update -y && dnf install -y ca-certificates curl git jq tzdata wget

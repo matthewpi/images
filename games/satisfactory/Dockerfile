@@ -20,16 +20,16 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
+FROM		--platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
 
-LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/matthewpi/images"
-LABEL       org.opencontainers.image.licenses=MIT
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
 
-ENV         DEBIAN_FRONTEND=noninteractive
+ENV			DEBIAN_FRONTEND=noninteractive
 
-RUN         dpkg --add-architecture i386 \
+RUN			dpkg --add-architecture i386 \
 				&& apt update \
 				&& apt upgrade -y \
 				&& apt install -y gnupg wget \
@@ -44,9 +44,9 @@ RUN         dpkg --add-architecture i386 \
 				&& useradd -m -d /home/container container \
 				&& rm -rf /libfaudio0_20.01-0~buster_amd64.deb /libfaudio0_20.01-0~buster_i386.deb /var/lib/apt/lists/*
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+USER		container
+ENV			USER=container HOME=/home/container
+WORKDIR		/home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+COPY		./entrypoint.sh /entrypoint.sh
+CMD			[ "/bin/bash", "/entrypoint.sh" ]

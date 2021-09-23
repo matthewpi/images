@@ -23,13 +23,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
-- [`satisfactory`](https://github.com/matthewpi/images/tree/master/games/satisfactory)
-  - WIP
-  - Tags
-    - `ghcr.io/matthewpi/images:satisfactory`
-    - `quay.io/matthewp/pterodactyl:satisfactory`
-  - Supported Architectures
-    - `linux/amd64`
 - [`source`](https://github.com/matthewpi/images/tree/master/games/source)
   - Image specifically designed for running Source Engine servers.
   - Tags
@@ -37,7 +30,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:source`
   - Supported Architectures
     - `linux/amd64`
-    - `linux/arm64`
 
 ### Generic
 
@@ -68,13 +60,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Golang
 
-- [`go1.14`](https://github.com/matthewpi/images/tree/master/go/1.14)
-  - Tags
-    - `ghcr.io/matthewpi/images:go1.14`
-    - `quay.io/matthewp/pterodactyl:go1.14`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
 - [`go1.15`](https://github.com/matthewpi/images/tree/master/go/1.15)
   - Tags
     - `ghcr.io/matthewpi/images:go1.15`
@@ -86,6 +71,13 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Tags
     - `ghcr.io/matthewpi/images:go1.16`
     - `quay.io/matthewp/pterodactyl:go1.16`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.17`](https://github.com/matthewpi/images/tree/master/go/1.17)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.17`
+    - `quay.io/matthewp/pterodactyl:go1.17`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
@@ -188,6 +180,12 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+- [`source-install`](https://github.com/matthewpi/images/tree/master/installers/source)
+  - Tags
+    - `ghcr.io/matthewpi/images:source-install`
+    - `quay.io/matthewp/pterodactyl:source-install`
+  - Supported Architectures
+    - `linux/amd64`
 - [`ubi-install`](https://github.com/matthewpi/images/tree/master/installers/ubi)
   - Tags
     - `ghcr.io/matthewpi/images:ubi-install`
