@@ -18,6 +18,7 @@ jobs:
         game:
           - fivem
           - source
+          - rust
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
