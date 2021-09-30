@@ -6,6 +6,7 @@ periodically to ensure dependencies are always up-to-date.
 Images are hosted on `ghcr.io` and exist under the `games`, `installers`, and `yolks` spaces. The following logic
 is used when determining which space an image will live under:
 
+* `oses` — base images containing core packages to get you started.
 * `games` — anything within the `games` folder in the repository. These are images built for running a specific game
 or type of game.
 * `installers` — anything living within the `installers` directory. These images are used by install scripts for different
@@ -16,7 +17,7 @@ a specific version of software and allow different Eggs within Pterodactyl to sw
 example of this would be something like Java or Python which are used for running bots, Minecraft servers, etc.
 
 All of these images are available for `linux/amd64` and `linux/arm64` versions, unless otherwise specified, to use
-these images on an arm system, no modification to them or the tag is needed, they should just work.
+these images on an arm64 system, no modification to them or the tag is needed, they should just work.
 
 ### Contributing
 
@@ -26,12 +27,18 @@ is tagged correctly.
 
 ## Available Images
 
-* [`alpine`](https://github.com/pterodactyl/yolks/tree/master/oses/alpine)
-  * `ghcr.io/pterodactyl/yolks:alpine`
-* [`debian`](https://github.com/pterodactyl/yolks/tree/master/oses/debian)
-  * `ghcr.io/pterodactyl/yolks:debian`
-* [`fivem`](https://github.com/pterodactyl/yolks/tree/master/games/fivem)
-  * `ghcr.io/pterodactyl/games:fivem`
+* [`base oses`](https://github.com/pterodactyl/yolks/tree/master/oses)
+  * [`alpine`](https://github.com/pterodactyl/yolks/tree/master/oses/alpine)
+    * `ghcr.io/pterodactyl/yolks:alpine`
+  * [`debian`](https://github.com/pterodactyl/yolks/tree/master/oses/debian)
+    * `ghcr.io/pterodactyl/yolks:debian`
+* [`games`](https://github.com/pterodactyl/yolks/tree/master/games)
+  * [`fivem`](https://github.com/pterodactyl/yolks/tree/master/games/fivem)
+    * `ghcr.io/pterodactyl/games:fivem`
+  * [`rust`](https://github.com/pterodactyl/yolks/tree/master/games/rust)
+    * `ghcr.io/pterodactyl/games:rust`
+  * [`source`](https://github.com/pterodactyl/yolks/tree/master/games/source)
+    * `ghcr.io/pterodactyl/games:source`
 * [`golang`](https://github.com/pterodactyl/yolks/tree/master/go)
   * [`go1.14`](https://github.com/pterodactyl/yolks/tree/master/go/1.14)
     * `ghcr.io/pterodactyl/yolks:go_1.14`
