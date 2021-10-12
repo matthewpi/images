@@ -32,4 +32,4 @@ ENV			DEBIAN_FRONTEND=noninteractive
 RUN			dpkg --add-architecture i386 \
 				&& apt-get update \
 				&& apt-get upgrade -y \
-				&& apt-get -y --no-install-recommends install ca-certificates curl git lib32gcc-s1 libsdl2-2.0-0:i386 wget
+				&& apt-get -y --no-install-recommends install ca-certificates curl git iproute2 lib32gcc-s1 libsdl2-2.0-0:i386 wget

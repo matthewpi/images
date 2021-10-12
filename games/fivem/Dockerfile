@@ -27,7 +27,7 @@ LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			apk add --update --no-cache ca-certificates c-ares icu-libs libssl1.1 libunwind musl musl-dbg tzdata zlib \
+RUN			apk add --update --no-cache ca-certificates c-ares icu-libs iproute2 libssl1.1 libunwind musl musl-dbg tzdata zlib \
 				&& adduser -D -h /home/container container
 
 USER		container

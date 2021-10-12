@@ -31,4 +31,4 @@ ENV			DEBIAN_FRONTEND=noninteractive
 
 RUN			apt-get update \
 				&& apt-get upgrade -y \
-				&& apt-get -y --no-install-recommends install ca-certificates curl git wget
+				&& apt-get -y --no-install-recommends install ca-certificates curl git iproute2 wget
