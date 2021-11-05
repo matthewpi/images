@@ -22,6 +22,9 @@
 # SOFTWARE.
 #
 
+# Give everything time to initialize for preventing SteamCMD deadlock
+sleep 1
+
 # Default the TZ environment variable to UTC.
 TZ=${TZ:-UTC}
 export TZ
