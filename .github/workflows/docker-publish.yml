@@ -31,6 +31,7 @@ jobs:
           - {type: "installers", image: "ubi"   , PREFIX: "", SUFFIX: "-install", context: "./installers/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
           - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
+          - {type: "java", image: "8-zulu"    , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
           - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
           - {type: "java", image: "16-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
@@ -89,4 +90,3 @@ jobs:
           tags: |
             ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
             quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
-# ${{ secrets.REGISTRY }}/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
