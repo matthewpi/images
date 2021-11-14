@@ -15,14 +15,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Games
 
-- [`fivem`](https://github.com/matthewpi/images/tree/master/games/fivem)
-  - Image specifically designed for running [FiveM](https://fivem.net)
-  - Tags
-    - `ghcr.io/matthewpi/images:fivem`
-    - `quay.io/matthewp/pterodactyl:fivem`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
 - [`source`](https://github.com/matthewpi/images/tree/master/games/source)
   - Image specifically designed for running Source Engine servers.
   - Tags
@@ -126,6 +118,16 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
 
+#### Java 17
+
+- [`java17-zulu`](https://github.com/matthewpi/images/tree/master/java/17-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java17-zulu`
+    - `quay.io/matthewp/pterodactyl:java17-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
 ### Node.js
 
 - [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
@@ -160,6 +162,13 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Tags
     - `ghcr.io/matthewpi/images:python3.9`
     - `quay.io/matthewp/pterodactyl:python3.9`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`python3.10`](https://github.com/matthewpi/images/tree/master/python/3.10)
+  - Tags
+    - `ghcr.io/matthewpi/images:python3.10`
+    - `quay.io/matthewp/pterodactyl:python3.10`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
