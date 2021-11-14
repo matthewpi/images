@@ -1,3 +1,0 @@
-# FiveM
-
-Soon&trade;
