@@ -22,6 +22,8 @@ jobs:
           - '3.10'
     steps:
       - uses: actions/checkout@v2
+      # Setup QEMU for ARM64 Build
+      - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
         with:
           version: "v0.5.1"
@@ -35,7 +37,7 @@ jobs:
         with:
           context: ./python
           file: ./python/${{ matrix.tag }}/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: |
             ghcr.io/pterodactyl/yolks:python_${{ matrix.tag }}
