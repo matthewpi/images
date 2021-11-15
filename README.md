@@ -60,7 +60,7 @@ is tagged correctly.
   * [`java16 - OpenJ9`](https://github.com/pterodactyl/yolks/tree/master/java/16j9)
     * `ghcr.io/pterodactyl/yolks:java_16j9`
   * [`java17`](https://github.com/pterodactyl/yolks/tree/master/java/17)
-    * `ghcr.io/pterodactyl/yolks:java_17`    
+    * `ghcr.io/pterodactyl/yolks:java_17`
 * [`nodejs`](https://github.com/pterodactyl/yolks/tree/master/nodejs)
   * [`node12`](https://github.com/pterodactyl/yolks/tree/master/nodejs/12)
     * `ghcr.io/pterodactyl/yolks:nodejs_12`
@@ -77,6 +77,8 @@ is tagged correctly.
     * `ghcr.io/pterodactyl/yolks:python_3.8`
   * [`python3.9`](https://github.com/pterodactyl/yolks/tree/master/python/3.9)
     * `ghcr.io/pterodactyl/yolks:python_3.9`
+  * [`python3.10`](https://github.com/pterodactyl/yolks/tree/master/python/3.10)
+    * `ghcr.io/pterodactyl/yolks:python_3.10`
 
 ### Installation Images
 
