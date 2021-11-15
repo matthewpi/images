@@ -70,6 +70,8 @@ is tagged correctly.
     * `ghcr.io/pterodactyl/yolks:nodejs_15`
   * [`node16`](https://github.com/pterodactyl/yolks/tree/master/nodejs/16)
     * `ghcr.io/pterodactyl/yolks:nodejs_16`
+  * [`node17`](https://github.com/pterodactyl/yolks/tree/master/nodejs/17)
+    * `ghcr.io/pterodactyl/yolks:nodejs_17`
 * [`python`](https://github.com/pterodactyl/yolks/tree/master/python)
   * [`python3.7`](https://github.com/pterodactyl/yolks/tree/master/python/3.7)
     * `ghcr.io/pterodactyl/yolks:python_3.7`
