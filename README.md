@@ -33,8 +33,6 @@ is tagged correctly.
   * [`debian`](https://github.com/pterodactyl/yolks/tree/master/oses/debian)
     * `ghcr.io/pterodactyl/yolks:debian`
 * [`games`](https://github.com/pterodactyl/yolks/tree/master/games)
-  * [`fivem`](https://github.com/pterodactyl/yolks/tree/master/games/fivem)
-    * `ghcr.io/pterodactyl/games:fivem`
   * [`rust`](https://github.com/pterodactyl/yolks/tree/master/games/rust)
     * `ghcr.io/pterodactyl/games:rust`
   * [`source`](https://github.com/pterodactyl/yolks/tree/master/games/source)
