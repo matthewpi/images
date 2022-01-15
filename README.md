@@ -19,7 +19,7 @@ example of this would be something like Java or Python which are used for runnin
 All of these images are available for `linux/amd64` and `linux/arm64` versions, unless otherwise specified, to use
 these images on an arm64 system, no modification to them or the tag is needed, they should just work.
 
-### Contributing
+## Contributing
 
 When adding a new version to an existing image, such as `java v42`, you'd add it within a child folder of `java`, so
 `java/42/Dockerfile` for example. Please also update the correct `.github/workflows` file to ensure that this new version
@@ -61,6 +61,8 @@ is tagged correctly.
     * `ghcr.io/pterodactyl/yolks:java_16j9`
   * [`java17`](https://github.com/pterodactyl/yolks/tree/master/java/17)
     * `ghcr.io/pterodactyl/yolks:java_17`
+  * [`java17 - OpenJ9`](https://github.com/pterodactyl/yolks/tree/master/java/17j9)
+    * `ghcr.io/pterodactyl/yolks:java_17j9`
 * [`nodejs`](https://github.com/pterodactyl/yolks/tree/master/nodejs)
   * [`node12`](https://github.com/pterodactyl/yolks/tree/master/nodejs/12)
     * `ghcr.io/pterodactyl/yolks:nodejs_12`
