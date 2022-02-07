@@ -20,7 +20,15 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH openjdk:11-slim
+# Hard coded specific Java version to fix issue with manifest constructor class in
+# newer Java versions breaking all modpacks and versions that are not using the
+# latest Forge release. This should be removed when the manifest constructor class
+# issue is backported or if Forge decides to abandon old versions and we need
+# newer Java versions. Old Quay images were updated like once a year, so it's ok.
+#
+# @see https://github.com/McModLauncher/modlauncher/issues/91
+
+FROM        --platform=$TARGETOS/$TARGETARCH openjdk:11.0.13-slim
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
