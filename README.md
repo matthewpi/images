@@ -137,7 +137,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 ### Node.js
 
 - [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
-  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-14/5ed7887dd70cc50e69c2fabb>
+  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-14-minimal/6065b8e1b92fbda3a4c65d91>
   - Tags
     - `ghcr.io/matthewpi/images:node14`
     - `quay.io/matthewp/pterodactyl:node14`
@@ -145,8 +145,15 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
   - End of life: `April 2023`
-- `node16`
-  - Waiting on official ubi8 image from Red Hat.
+- [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
+  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-16-minimal/615aefd53f6014fa45ae1ae2>
+  - Tags
+    - `ghcr.io/matthewpi/images:node16`
+    - `quay.io/matthewp/pterodactyl:node16`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+  - End of life: `April 2024`
 
 ### Python
 
