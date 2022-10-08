@@ -21,16 +21,11 @@ jobs:
           - {type: "generic", image: "debian", PREFIX: "", SUFFIX: "", context: "./generic/debian", platforms: "linux/amd64,linux/arm64"}
           - {type: "generic", image: "ubi"   , PREFIX: "", SUFFIX: "", context: "./generic/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "go", image: "1.15", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
-          - {type: "go", image: "1.16", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
-          - {type: "go", image: "1.17", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
-
           - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine", platforms: "linux/amd64,linux/arm64"}
           - {type: "installers", image: "debian", PREFIX: "", SUFFIX: "-install", context: "./installers/debian", platforms: "linux/amd64,linux/arm64"}
           - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source", platforms: "linux/amd64"}
           - {type: "installers", image: "ubi"   , PREFIX: "", SUFFIX: "-install", context: "./installers/ubi"   , platforms: "linux/amd64,linux/arm64"}
-
-          - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
+          
           - {type: "java", image: "8-zulu"    , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
           - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
@@ -39,14 +34,6 @@ jobs:
           - {type: "java", image: "17-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "18-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "19-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
-
-          - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
-          - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
-
-          - {type: "python", image: "3.7" , PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
-          - {type: "python", image: "3.8" , PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
-          - {type: "python", image: "3.9" , PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
-          - {type: "python", image: "3.10", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
 
     steps:
       - name: Code Checkout
