@@ -69,13 +69,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      - name: Login to Quay
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: matthewp
-          password: ${{ secrets.QUAY_SECRET }}
-
       # - name: Login to Private Registry
       #   uses: docker/login-action@v1
       #   with:
@@ -91,5 +84,4 @@ jobs:
           platforms: ${{ matrix.image.platforms }}
           push: true
           tags: |
-            ghcr.io/matthewpi/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
-            quay.io/matthewp/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+            ghcr.io/rafi67000/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
