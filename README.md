@@ -194,6 +194,13 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+- [`python3.11`](https://github.com/matthewpi/images/tree/master/python/3.11)
+  - Tags
+    - `ghcr.io/matthewpi/images:python3.11`
+    - `quay.io/matthewp/pterodactyl:python3.11`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
 
 ### Installers
 
