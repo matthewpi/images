@@ -1,0 +1,51 @@
+#
+# Copyright (c) 2023 Matthew Penner
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi9/ubi-minimal:latest
+
+LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
+
+LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
+LABEL		org.opencontainers.image.licenses=MIT
+
+RUN			microdnf install fontconfig glibc-langpack-en iproute openssl sqlite tar \
+				&& microdnf update \
+				&& microdnf install shadow-utils \
+				&& adduser --home-dir /home/container container \
+				&& microdnf remove shadow-utils \
+				&& rpm --install https://cdn.azul.com/zulu/bin/zulu-repo-1.0.0-1.noarch.rpm \
+				&& microdnf install zulu19-jre \
+				&& microdnf clean all \
+				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
+
+ENV			LANG=en_US.UTF-8
+ENV			LANGUAGE=en_US:en
+ENV			LC_ALL=en_US.UTF-8
+
+ENV			JAVA_HOME=/usr/lib/jvm/zulu19-ca
+
+USER		container
+ENV			USER=container HOME=/home/container
+WORKDIR		/home/container
+
+COPY		./entrypoint.sh /entrypoint.sh
+CMD			[ "/bin/bash", "/entrypoint.sh" ]

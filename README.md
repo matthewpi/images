@@ -84,6 +84,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:java8`
   - Supported Architectures
     - `linux/amd64`
+  - End of life: `December 2030`
 - [`java8-zulu`](https://github.com/matthewpi/images/tree/master/java/8-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java8-zulu`
@@ -91,6 +92,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `December 2030`
 
 #### Java 11
 
@@ -101,6 +103,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `September 2026`
 - [`java11-zulu`](https://github.com/matthewpi/images/tree/master/java/11-zulu)
   - Tags
     - `ghcr.io/matthewpi/images:java11-zulu`
@@ -108,6 +111,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `September 2026`
 
 #### Java 17
 
@@ -118,6 +122,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `September 2029`
 
 #### Java 18
 
@@ -128,6 +133,18 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
+  - End of life: `September 2022`
+
+#### Java 19
+
+- [`java19-zulu`](https://github.com/matthewpi/images/tree/master/java/19-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java19-zulu`
+    - `quay.io/matthewp/pterodactyl:java19-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+  - End of life: `March 2023`
 
 ### Node.js
 
