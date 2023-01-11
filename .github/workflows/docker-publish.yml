@@ -34,8 +34,6 @@ jobs:
           - {type: "java", image: "8-zulu"    , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
-          - {type: "java", image: "16-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
-          - {type: "java", image: "16-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "17-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
 
           - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}

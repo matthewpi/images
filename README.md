@@ -109,23 +109,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
 
-#### Java 16
-
-- [`java16-hotspot`](https://github.com/matthewpi/images/tree/master/java/16-hotspot)
-  - Tags
-    - `ghcr.io/matthewpi/images:java16-hotspot`
-    - `quay.io/matthewp/pterodactyl:java16-hotspot`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
-- [`java16-zulu`](https://github.com/matthewpi/images/tree/master/java/16-zulu)
-  - Tags
-    - `ghcr.io/matthewpi/images:java16-zulu`
-    - `quay.io/matthewp/pterodactyl:java16-zulu`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
-
 #### Java 17
 
 - [`java17-zulu`](https://github.com/matthewpi/images/tree/master/java/17-zulu)
