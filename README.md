@@ -146,14 +146,14 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/arm64`
   - End of life: `April 2023`
 - [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
-  - <https://catalog.redhat.com/software/containers/ubi8/nodejs-16-minimal/615aefd53f6014fa45ae1ae2>
+  - <https://catalog.redhat.com/software/containers/ubi9/nodejs-16-minimal/61a6059abfd4a5234d59621f>
   - Tags
     - `ghcr.io/matthewpi/images:node16`
     - `quay.io/matthewp/pterodactyl:node16`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
-  - End of life: `April 2024`
+  - End of life: `September 2023`
 
 ### Python
 
