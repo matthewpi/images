@@ -154,6 +154,15 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
   - End of life: `September 2023`
+- [`node18`](https://github.com/matthewpi/images/tree/master/node/18)
+  - <https://catalog.redhat.com/software/containers/ubi9/nodejs-18-minimal/62e8e919d4f57d92a9dee838>
+  - Tags
+    - `ghcr.io/matthewpi/images:node18`
+    - `quay.io/matthewp/pterodactyl:node18`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+  - End of life: `April 2025`
 
 ### Python
 
