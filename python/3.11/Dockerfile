@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH python:3.11-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/python:3.11-alpine
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

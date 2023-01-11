@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021 Matthew Penner
+# Copyright (c) 2023 Matthew Penner
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH python:3.10-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/python:3.10-alpine
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

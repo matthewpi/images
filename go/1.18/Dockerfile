@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH golang:1.18-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/golang:1.18-alpine
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
