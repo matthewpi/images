@@ -50,41 +50,33 @@ jobs:
 
     steps:
       - name: Code Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
         if: ${{ matrix.image.platforms != 'linux/amd64' }}
 
       - name: Install buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
         with:
-          version: v0.6.3
           buildkitd-flags: --debug
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
       - name: Login to Quay
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: quay.io
           username: matthewp
           password: ${{ secrets.QUAY_SECRET }}
 
-      # - name: Login to Private Registry
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: ${{ secrets.REGISTRY }}
-      #     username: ${{ secrets.REGISTRY_USERNAME }}
-      #     password: ${{ secrets.REGISTRY_PASSWORD }}
-
       - name: Build and Push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: ./${{ matrix.image.context }}
           file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Dockerfile
