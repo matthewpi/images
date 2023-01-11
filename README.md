@@ -90,6 +90,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:java8-zulu`
   - Supported Architectures
     - `linux/amd64`
+    - `linux/arm64`
 
 #### Java 11
 
@@ -106,6 +107,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `quay.io/matthewp/pterodactyl:java11-zulu`
   - Supported Architectures
     - `linux/amd64`
+    - `linux/arm64`
 
 #### Java 16
 

@@ -21,13 +21,13 @@
 #
 
 # https://github.com/ibmruntimes/ci.docker/blob/master/ibmjava/8/jre/ubi-min/Dockerfile
-FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 RUN			microdnf install ca-certificates gzip openssl tar wget \
 				&& microdnf update \
 				&& microdnf clean all
 
-ENV			JAVA_VERSION=8.0.6.36
+ENV			JAVA_VERSION=8.0.7.20
 
 RUN			set -eux; \
 				microdnf -y install shadow-utils; \
@@ -35,7 +35,7 @@ RUN			set -eux; \
 				ARCH="$(uname -m)"; \
 				case "${ARCH}" in \
 					amd64|x86_64) \
-						ESUM='d0198a37b63810174dc972eb06976e3e761efb21524c1fa3f9f1ed1246f3a9e3'; \
+						ESUM='4abf605bdffc703f48c506177ee874da9498a4ee5ef322bfb9b4170b097bf2a8'; \
 						YML_FILE='8.0/jre/linux/x86_64/index.yml'; \
 					;; \
 					*) \

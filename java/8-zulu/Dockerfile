@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/ubi-minimal:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 

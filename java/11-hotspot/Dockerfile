@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi8/openjdk-11-runtime:latest
+FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi9/openjdk-11-runtime:latest
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
