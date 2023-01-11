@@ -52,24 +52,24 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Golang
 
-- [`go1.15`](https://github.com/matthewpi/images/tree/master/go/1.15)
-  - Tags
-    - `ghcr.io/matthewpi/images:go1.15`
-    - `quay.io/matthewp/pterodactyl:go1.15`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
-- [`go1.16`](https://github.com/matthewpi/images/tree/master/go/1.16)
-  - Tags
-    - `ghcr.io/matthewpi/images:go1.16`
-    - `quay.io/matthewp/pterodactyl:go1.16`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
 - [`go1.17`](https://github.com/matthewpi/images/tree/master/go/1.17)
   - Tags
     - `ghcr.io/matthewpi/images:go1.17`
     - `quay.io/matthewp/pterodactyl:go1.17`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.18`](https://github.com/matthewpi/images/tree/master/go/1.18)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.18`
+    - `quay.io/matthewp/pterodactyl:go1.18`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.19`](https://github.com/matthewpi/images/tree/master/go/1.19)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.19`
+    - `quay.io/matthewp/pterodactyl:go1.19`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`
