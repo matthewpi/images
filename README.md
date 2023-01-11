@@ -119,6 +119,16 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
 
+#### Java 18
+
+- [`java18-zulu`](https://github.com/matthewpi/images/tree/master/java/18-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java18-zulu`
+    - `quay.io/matthewp/pterodactyl:java18-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+
 ### Node.js
 
 - [`node14`](https://github.com/matthewpi/images/tree/master/node/14)
