@@ -27,4 +27,4 @@ LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			dnf update -y && dnf install --assumeyes --allowerasing ca-certificates curl git iproute jq tzdata wget
+RUN			dnf update --assumeyes && dnf install --assumeyes --allowerasing ca-certificates curl git iproute jq tzdata wget

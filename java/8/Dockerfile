@@ -23,14 +23,13 @@
 # https://github.com/ibmruntimes/ci.docker/blob/master/ibmjava/8/jre/ubi-min/Dockerfile
 FROM		--platform=$TARGETOS/$TARGETARCH registry.access.redhat.com/ubi9/ubi-minimal:latest
 
-RUN			microdnf install ca-certificates gzip openssl tar wget \
-				&& microdnf update \
+RUN			microdnf install -y ca-certificates gzip openssl shadow-utils tar wget \
+				&& microdnf update -y \
 				&& microdnf clean all
 
 ENV			JAVA_VERSION=8.0.7.20
 
 RUN			set -eux; \
-				microdnf -y install shadow-utils; \
 				useradd -u 1001 -r -g 0 -s /usr/sbin/nologin default; \
 				ARCH="$(uname -m)"; \
 				case "${ARCH}" in \
@@ -59,7 +58,6 @@ RUN			set -eux; \
 				mkdir -p /licenses; \
 				cp /opt/ibm/java/license_en.txt /licenses; \
 				chown -R 1001:0 /opt/ibm/java; \
-				microdnf -y remove shadow-utils; \
 				microdnf clean all; \
 				rm -f /tmp/ibm-java.bin;
 
@@ -74,11 +72,9 @@ LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			microdnf install fontconfig glibc-langpack-en iproute openssl sqlite tar \
-				&& microdnf update \
-				&& microdnf install shadow-utils \
+RUN			microdnf install -y fontconfig glibc-langpack-en iproute openssl shadow-utils sqlite tar \
+				&& microdnf update -y \
 				&& adduser --home-dir /home/container container \
-				&& microdnf remove shadow-utils \
 				&& microdnf clean all \
 				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
 

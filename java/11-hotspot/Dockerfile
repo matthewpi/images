@@ -29,11 +29,9 @@ LABEL		org.opencontainers.image.licenses=MIT
 
 USER		root
 
-RUN			microdnf install fontconfig glibc-langpack-en iproute openssl sqlite tar \
-				&& microdnf update \
-				&& microdnf install shadow-utils \
+RUN			microdnf install -y fontconfig glibc-langpack-en iproute openssl shadow-utils sqlite tar \
+				&& microdnf update -y \
 				&& adduser --home-dir /home/container container \
-				&& microdnf remove shadow-utils \
 				&& microdnf clean all \
 				&& sed -i 's/^LANG=.*/LANG="en_US.utf8"/' /etc/locale.conf
 
