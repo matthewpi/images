@@ -157,6 +157,17 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/arm64`
   - End of life: `September 2023`
 
+#### Java 21
+
+- [`java21-zulu`](https://github.com/matthewpi/images/tree/master/java/21-zulu)
+  - Tags
+    - `ghcr.io/matthewpi/images:java21-zulu`
+    - `quay.io/matthewp/pterodactyl:java21-zulu`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+  - End of life: `September 2028`
+
 ### Node.js
 
 - [`node16`](https://github.com/matthewpi/images/tree/master/node/16)
