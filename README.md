@@ -214,6 +214,15 @@ pre-installing common installation dependencies such as `curl` and `wget`.
     - `linux/amd64`
     - `linux/arm64`
 
+### Runtimes
+
+- [`steamrt-sniper`](https://github.com/matthewpi/images/tree/master/runtimes/steamrt-sniper)
+  - Tags
+    - `ghcr.io/matthewpi/images:steamrt-sniper`
+    - `quay.io/matthewp/pterodactyl:steamrt-sniper`
+  - Supported Architectures
+    - `linux/amd64`
+
 ### Installers
 
 - [`alpine-install`](https://github.com/matthewpi/images/tree/master/installers/alpine)
