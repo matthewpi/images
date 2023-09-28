@@ -169,20 +169,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Python
 
-- [`python3.7`](https://github.com/matthewpi/images/tree/master/python/3.7)
-  - Tags
-    - `ghcr.io/matthewpi/images:python3.7`
-    - `quay.io/matthewp/pterodactyl:python3.7`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
-- [`python3.8`](https://github.com/matthewpi/images/tree/master/python/3.8)
-  - Tags
-    - `ghcr.io/matthewpi/images:python3.8`
-    - `quay.io/matthewp/pterodactyl:python3.8`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
 - [`python3.9`](https://github.com/matthewpi/images/tree/master/python/3.9)
   - Tags
     - `ghcr.io/matthewpi/images:python3.9`
