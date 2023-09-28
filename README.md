@@ -52,13 +52,6 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 
 ### Golang
 
-- [`go1.18`](https://github.com/matthewpi/images/tree/master/go/1.18)
-  - Tags
-    - `ghcr.io/matthewpi/images:go1.18`
-    - `quay.io/matthewp/pterodactyl:go1.18`
-  - Supported Architectures
-    - `linux/amd64`
-    - `linux/arm64`
 - [`go1.19`](https://github.com/matthewpi/images/tree/master/go/1.19)
   - Tags
     - `ghcr.io/matthewpi/images:go1.19`
@@ -70,6 +63,13 @@ pre-installing common installation dependencies such as `curl` and `wget`.
   - Tags
     - `ghcr.io/matthewpi/images:go1.20`
     - `quay.io/matthewp/pterodactyl:go1.20`
+  - Supported Architectures
+    - `linux/amd64`
+    - `linux/arm64`
+- [`go1.21`](https://github.com/matthewpi/images/tree/master/go/1.21)
+  - Tags
+    - `ghcr.io/matthewpi/images:go1.21`
+    - `quay.io/matthewp/pterodactyl:go1.21`
   - Supported Architectures
     - `linux/amd64`
     - `linux/arm64`

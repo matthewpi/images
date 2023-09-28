@@ -25,9 +25,9 @@ jobs:
           - {type: "generic", image: "debian", PREFIX: "", SUFFIX: "", context: "./generic/debian", platforms: "linux/amd64,linux/arm64"}
           - {type: "generic", image: "ubi"   , PREFIX: "", SUFFIX: "", context: "./generic/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "go", image: "1.18", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
           - {type: "go", image: "1.19", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
           - {type: "go", image: "1.20", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
+          - {type: "go", image: "1.21", PREFIX: "go", SUFFIX: "", context: "./go", platforms: "linux/amd64,linux/arm64"}
 
           - {type: "installers", image: "alpine", PREFIX: "", SUFFIX: "-install", context: "./installers/alpine", platforms: "linux/amd64,linux/arm64"}
           - {type: "installers", image: "debian", PREFIX: "", SUFFIX: "-install", context: "./installers/debian", platforms: "linux/amd64,linux/arm64"}
