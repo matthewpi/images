@@ -42,7 +42,6 @@ jobs:
           - {type: "java", image: "18-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "19-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "node", image: "14", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
           - {type: "node", image: "16", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
           - {type: "node", image: "18", PREFIX: "node", SUFFIX: "", context: "./node", platforms: "linux/amd64,linux/arm64"}
 
