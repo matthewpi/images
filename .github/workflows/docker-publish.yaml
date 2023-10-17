@@ -51,6 +51,7 @@ jobs:
           - {type: "python", image: "3.9" , PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
           - {type: "python", image: "3.10", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
           - {type: "python", image: "3.11", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
+          - {type: "python", image: "3.12", PREFIX: "python", SUFFIX: "", context: "./python", platforms: "linux/amd64,linux/arm64"}
 
           - {type: "runtimes", image: "steamrt-sniper", PREFIX: "", SUFFIX: "", context: "./runtimes/steamrt-sniper", platforms: "linux/amd64"}
 
