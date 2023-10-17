@@ -20,14 +20,16 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/golang:1.19-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/golang:1.19-bookworm
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			apk add --update --no-cache ca-certificates iproute2 tzdata \
+ENV			DEBIAN_FRONTEND=noninteractive
+
+RUN			apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates iproute2 tzdata \
 				&& adduser -D -h /home/container container
 
 USER		container
