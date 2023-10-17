@@ -29,7 +29,7 @@ LABEL		org.opencontainers.image.licenses=MIT
 
 ENV			DEBIAN_FRONTEND=noninteractive
 
-RUN			apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates curl ffmpeg g++ gcc git iproute2 openssl sqlite tar tzdata \
+RUN			apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates curl ffmpeg g++ gcc git iproute2 openssl sqlite3 tar tzdata \
 				&& adduser -D -h /home/container container
 
 USER		container
