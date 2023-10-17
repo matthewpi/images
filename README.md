@@ -79,6 +79,7 @@ pre-installing common installation dependencies such as `curl` and `wget`.
 #### Java 8
 
 - [`java8`](https://github.com/matthewpi/images/tree/master/java/8)
+  - **This image is currently failing to build, it will not be rebuilt to update dependencies**
   - Tags
     - `ghcr.io/matthewpi/images:java8`
     - `quay.io/matthewp/pterodactyl:java8`

@@ -34,7 +34,8 @@ jobs:
           - {type: "installers", image: "source", PREFIX: "", SUFFIX: "-install", context: "./installers/source", platforms: "linux/amd64"}
           - {type: "installers", image: "ubi"   , PREFIX: "", SUFFIX: "-install", context: "./installers/ubi"   , platforms: "linux/amd64,linux/arm64"}
 
-          - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
+          # Java 8 build fails, maybe the image source is dead?
+          # - {type: "java", image: "8"         , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64"}
           - {type: "java", image: "8-zulu"    , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-hotspot", PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
           - {type: "java", image: "11-zulu"   , PREFIX: "java", SUFFIX: "", context: "./java", platforms: "linux/amd64,linux/arm64"}
