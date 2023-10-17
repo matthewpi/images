@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 #
 # Copyright (c) 2023 Matthew Penner

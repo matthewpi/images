@@ -20,14 +20,16 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/python:3.11-alpine
+FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/python:3.11-bookworm
 
 LABEL		author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
 LABEL		org.opencontainers.image.source="https://github.com/matthewpi/images"
 LABEL		org.opencontainers.image.licenses=MIT
 
-RUN			apk add --update --no-cache ca-certificates curl ffmpeg g++ gcc git iproute2 openssl sqlite tar tzdata \
+ENV			DEBIAN_FRONTEND=noninteractive
+
+RUN			apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates curl ffmpeg g++ gcc git iproute2 openssl sqlite tar tzdata \
 				&& adduser -D -h /home/container container
 
 USER		container
@@ -35,4 +37,4 @@ ENV			USER=container HOME=/home/container
 WORKDIR		/home/container
 
 COPY		./entrypoint.sh /entrypoint.sh
-CMD			[ "/bin/ash", "/entrypoint.sh" ]
+CMD			[ "/bin/bash", "/entrypoint.sh" ]
